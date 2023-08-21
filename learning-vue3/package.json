@@ -1,0 +1,43 @@
+{
+  "name": "learning-vue3",
+  "version": "2.0.0",
+  "description": "A starting learning tutorial on Vue 3.0 + TypeScript, suitable for complete Vue novices and Vue 2.0 veterans, incorporating some of my own practical experience on the basis of official documents.",
+  "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
+  "homepage": "https://vue3.chengpeiquan.com",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev --host",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "deploy": "npm run build && gh-pages -d dist",
+    "backup": "git add . && git commit -m \"chore: backup\" && git push",
+    "up": "npx npm-check-updates -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chengpeiquan/learning-vue3.git"
+  },
+  "keywords": [
+    "vue3",
+    "vue",
+    "TypeScript",
+    "ts"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chengpeiquan/learning-vue3/issues"
+  },
+  "dependencies": {
+    "@bassist/utils": "^0.12.0",
+    "@web-analytics/vue": "^0.2.2"
+  },
+  "devDependencies": {
+    "@bassist/tsconfig": "^0.1.1",
+    "@types/node": "^20.4.8",
+    "@withtypes/md5": "^0.1.1",
+    "gitalk": "^1.8.0",
+    "vite-plugin-banner": "^0.7.0",
+    "vitepress": "1.0.0-beta.7",
+    "vue": "^3.3.4"
+  }
+}

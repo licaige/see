@@ -1,0 +1,13 @@
+{
+  "extends": "@bassist/tsconfig/web.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "types": ["node"],
+    "paths": {
+      "@/*": ["docs/*"]
+    }
+  },
+  "include": ["docs/**/*", ".vitepress/**/*"],
+  "exclude": ["node_modules"]
+}
