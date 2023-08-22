@@ -1,0 +1,98 @@
+@use './mixins/bem.scss' as *;
+
+@include b('radio') {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  line-height: 1;
+  cursor: pointer;
+
+  @include when(checked) {
+    .#{$namespace}-radio__label {
+      color: var(--bn-primary);
+    }
+  }
+
+  @include when(disabled) {
+    cursor: not-allowed;
+    .#{$namespace}-radio__label {
+      color: #c0c4cc;
+    }
+  }
+
+  @include e(input) {
+    @include when(disabled) {
+      .#{$namespace}-radio__inner {
+        border-color: #ebecef;
+      }
+
+      &.is-checked {
+        .#{$namespace}-radio__inner {
+          &::after {
+            background-color: #c0c4cc;
+          }
+        }
+      }
+    }
+
+    @include when(checked) {
+      .#{$namespace}-radio__inner {
+        &::after {
+          background: var(--bn-primary);
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+  }
+
+  @include e(origin) {
+    position: absolute;
+    z-index: -1;
+    margin: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    outline: none;
+  }
+
+  @include e(inner) {
+    position: relative;
+    display: inline-flex;
+    border: 1px solid #9ca6b9;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    transition: all 0.15s ease-in;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: var(--bn-primary);
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 100%;
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      transition: transform 0.15s ease-in;
+      content: '';
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+
+  @include e(label) {
+    padding-left: 8px;
+  }
+}
+
+@include b(radio-group) {
+  .#{$namespace}-radio + .#{$namespace}-radio {
+    margin-left: 15px;
+  }
+}

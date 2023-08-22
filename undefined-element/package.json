@@ -1,0 +1,30 @@
+{
+  "name": "undefined-element",
+  "version": "0.9.0",
+  "description": "undefined element",
+  "main": "./src/index.js",
+  "author": "xnorain001",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xNoRain001/undefined-element.git"
+  },
+  "keywords": [
+    "vue",
+    "component-library",
+    "undefined-element"
+  ],
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "css": "npx tailwindcss -i ./src/assets/css/index.css -o ./dist/index.css --minify --watch",
+    "examples": "npx tailwindcss -i ./docs/assets/css/index.css -c ./docs/tailwind.config.js -o ./docs/assets/css/dist.css --watch",
+    "md": "node ./scripts/index.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "vitepress": "^1.0.0-beta.7",
+    "vue": "^3.3.4"
+  }
+}

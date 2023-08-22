@@ -1,0 +1,31 @@
+@use '@ui/styles/mixins' as m;
+@use '@ui/styles/functions' as fn;
+@use '@ui/styles/vars';
+
+@include m.b(input) {
+  vertical-align: middle;
+  font-size: 0;
+  line-height: 1;
+  width: 200px;
+  @include m.flex($display: inline-flex, $justify: center);
+
+  @include m.form-component;
+
+  @include m.e(prefix, suffix) {
+    font-size: 14px;
+    @include m.flex(inline-flex, $justify: center, $align: center);
+    color: fn.use-var(text-color, main);
+    flex-shrink: 0;
+    min-width: 24px;
+    height: 100%;
+
+    @include m.is(clickable) {
+      cursor: pointer;
+    }
+  }
+
+  @include m.e(clear) {
+    cursor: pointer;
+    color: fn.use-var(text-color, main);
+  }
+}

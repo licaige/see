@@ -1,0 +1,104 @@
+$qianyun: #eaecf1; // 浅云
+$rimu: #6379f6; // 绀宇
+$tianshuibi: #5aa4ae; // 天水碧
+$zhuyantuo: #f29a76; // 朱颜砣
+$shiliuqun: #b13b2e; // 石榴裙
+$mushanzi: #a4abd6; // 暮山紫
+
+$default: $qianyun;
+$primary: $rimu;
+$success: $tianshuibi;
+$warning: $zhuyantuo;
+$danger: $shiliuqun;
+$info: $mushanzi;
+
+:root {
+  --default-color: #eaecf1;
+  --primary-color: #6379f6;
+  --success-color: #5aa4ae;
+  --warning-color: #f29a76;
+  --danger-color: #b13b2e;
+
+  --button-plain-bg: #fff;
+
+  // hover
+  --default-color-lighter-1: #f3f4f7;
+  --primary-color-lighter-1: #7185f7;
+  --success-color-lighter-1: #64aab3;
+  --warning-color-lighter-1: #f29d7b;
+  --danger-color-lighter-1: #b93e30;
+  // active
+  --default-color-darker-1: #e1e4eb;
+  --primary-color-darker-1: #5971f5;
+  --success-color-darker-1: #54a0aa;
+  --warning-color-darker-1: #f08c63;
+  --danger-color-darker-1: #a9382c;
+
+  --primary-color-hover: #e8ebfb;
+
+  --default-radius: 6px;
+  --default-round-radius: 24px;
+
+  // disabled
+  --default-color-lighter-2: #f1f2f5;
+  --primary-color-lighter-2: #6d85ff;
+  --success-color-lighter-2: #8dc0c7;
+  --warning-color-lighter-2: #efa384;
+  --danger-color-lighter-2: #d44737;
+
+  --primary-color-lighter-3: #7791ff;
+  --primary-color-lighter-4: #8ba9ff;
+  --primary-color-lighter-5: #9ec2ff;
+  --primary-color-lighter-6: #b2daff;
+  --primary-color-lighter-7: #bee8ff;
+
+  --danger-color-lighter-3: #f85340;
+  --danger-color-lighter-4: #ff5e4a;
+  --danger-color-lighter-5: #ff644e;
+  --danger-color-lighter-6: #ff6a53;
+  --danger-color-lighter-7: #ff7057;
+}
+
+:root {
+  --input-default-border-color: #dde0e5;
+  --input-hover-border-color: #dde0e5;
+
+  --default-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+
+  // select
+  --select-inner-bg: #fff;
+  --select-inner-color: #333;
+  --select-options-bg: #fff;
+
+  // switch
+  --switch-bg-on-color: var(--primary-color);
+  --switch-bg-off-color: var(--default-color-darker-1);
+
+  // model
+  --drawer-body-bg: #fff;
+
+  // tabs
+  --tabs-header-bg: #f5f5f5;
+  --tabs-header-block-bg: #fff;
+}
+
+.dark {
+  // button
+  --default-color: #525354;
+  --default-color-darker-1: #333;
+  --default-color-lighter-1: #444;
+  --default-color-lighter-2: #666;
+  --button-plain-bg: transparent;
+
+  // select
+  --select-inner-bg: #333;
+  --select-inner-color: #c7c7c7;
+  --select-options-bg: #333;
+
+  // model
+  --drawer-body-bg: #333;
+
+  // tabs
+  --tabs-header-bg: #333;
+  --tabs-header-block-bg: #666;
+}

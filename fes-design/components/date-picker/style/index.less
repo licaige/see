@@ -1,0 +1,348 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixin.less';
+
+@date-picker-prefix-cls: ~'@{cls-prefix}-date-picker';
+
+.@{date-picker-prefix-cls} {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+
+    &-popper {
+        overflow: hidden;
+    }
+}
+
+@calendars-prefix-cls: ~'@{cls-prefix}-calendars';
+
+@date-border-split: var(--f-border-width-base) var(--f-border-style-base)
+    var(--f-border-color-split);
+
+.@{calendars-prefix-cls} {
+    display: flex;
+    .text();
+
+    &-daterange {
+        display: flex;
+        flex-direction: row;
+    }
+    &-footer {
+        border-top: @date-border-split;
+        &-inner {
+            padding: 10px 8px;
+            text-align: right;
+            > .@{cls-prefix}-btn {
+                margin-left: 8px;
+            }
+        }
+    }
+
+    &-shortcuts {
+        padding: 10px 0;
+        overflow-y: auto;
+        border-left: @date-border-split;
+        > li {
+            padding: 0 16px;
+            line-height: 32px;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+                color: var(--f-primary-color);
+                background-color: var(--f-hover-color-light);
+            }
+        }
+    }
+}
+
+@calendar-prefix-cls: ~'@{cls-prefix}-calendar';
+
+.@{calendar-prefix-cls} {
+    display: flex;
+    flex-direction: column;
+    color: var(--f-text-color);
+    font-size: @font-size-caption;
+    background: var(--f-white);
+    user-select: none;
+
+    & &-icon {
+        color: var(--f-text-color-secondary);
+        &:hover {
+            color: var(--f-primary-color);
+        }
+    }
+
+    &-head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 9px 0;
+        border-bottom: @date-border-split;
+
+        &-middle {
+            flex: 2;
+            font-weight: @font-weight-semibold;
+            font-size: var(--f-font-size-base);
+            text-align: center;
+            &-item {
+                position: relative;
+                display: inline-block;
+                padding: 0 2px;
+                text-align: center;
+            }
+        }
+        &-left {
+            flex: 1;
+            padding-left: @padding-xs;
+        }
+        &-right {
+            flex: 1;
+            padding-right: @padding-xs;
+            text-align: right;
+        }
+    }
+
+    &-body {
+        position: relative;
+        width: 100%;
+        padding: 8px 10px;
+    }
+    &-days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        width: 224px;
+        height: 224px;
+    }
+    &-week,
+    &-date {
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        width: 100%;
+        width: 24px;
+        height: 24px;
+        font-weight: normal;
+        line-height: 24px;
+        text-align: center;
+        border-radius: var(--f-border-radius-base);
+        place-self: center center;
+    }
+    &-date {
+        cursor: pointer;
+        &:hover {
+            background: var(--f-hover-color-light);
+        }
+    }
+    &-date-on {
+        background-color: var(--f-hover-color-light);
+        border-radius: 0;
+        transition: all @animation-duration-base @ease-base-in;
+        &::before {
+            position: absolute;
+            left: -4px;
+            z-index: -1;
+            width: 32px;
+            height: 100%;
+            background-color: var(--f-hover-color-light);
+            content: '';
+        }
+    }
+    &-date-now {
+        color: var(--f-primary-color);
+        background-color: var(--f-hover-color-light);
+        &::after {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 3px;
+            height: 3px;
+            background-color: var(--f-primary-color);
+            border-radius: 50%;
+            content: '';
+        }
+    }
+    &-date-out {
+        color: var(--f-text-color-disabled);
+        background-color: var(--f-white);
+    }
+    &-date-selected {
+        color: var(--f-white);
+        font-weight: @font-weight-medium;
+        background: var(--f-primary-color);
+        transition: all @animation-duration-base @ease-base-in;
+        &:hover {
+            color: var(--f-white);
+            font-weight: @font-weight-medium;
+            background: var(--f-primary-color);
+        }
+        &.is-start:not(.is-end) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            &::before {
+                position: absolute;
+                right: -4px;
+                z-index: -1;
+                width: 4px;
+                height: 100%;
+                background-color: var(--f-hover-color-light);
+                content: '';
+            }
+        }
+        &.is-end:not(.is-start) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            &::before {
+                position: absolute;
+                left: -4px;
+                z-index: -1;
+                width: 4px;
+                height: 100%;
+                background-color: var(--f-hover-color-light);
+                content: '';
+            }
+        }
+    }
+    &-date-disabled {
+        color: var(--f-text-color-disabled);
+        background: var(--f-disabled-color-base);
+        cursor: default;
+        &::before {
+            position: absolute;
+            left: -4px;
+            z-index: -1;
+            width: 32px;
+            height: 100%;
+            background-color: var(--f-disabled-color-light);
+            content: '';
+        }
+    }
+
+    &-months,
+    &-years,
+    &-quarters {
+        display: grid;
+        grid-row-gap: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        width: 256px;
+        background: var(--f-white);
+    }
+    &-months {
+        height: 112px;
+        .@{calendar-prefix-cls}-date-on {
+            &::before {
+                width: 64px;
+            }
+        }
+    }
+    &-years {
+        height: 152px;
+    }
+    &-months span,
+    &-years span,
+    &-quarters span {
+        width: 56px;
+        padding: 0 8px;
+    }
+
+    &-title {
+        height: 34px;
+        font-weight: @font-weight-medium;
+        line-height: 34px;
+        text-align: center;
+        background: var(--f-white);
+        border-bottom: @date-border-split;
+    }
+
+    & &-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 10px 4px;
+        &-date,
+        &-time {
+            width: 107px;
+            height: 24px;
+            text-align: center;
+            border-radius: var(--f-border-radius-sm);
+        }
+    }
+}
+
+@range-input-prefix-cls: ~'@{cls-prefix}-range-input';
+
+.@{range-input-prefix-cls} {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: @data-input-height-base;
+    padding: 5px 9px;
+    font-size: var(--f-font-size-base);
+    background-color: var(--f-white);
+    border: var(--f-border-base);
+    border-radius: var(--f-border-radius-base);
+    outline: none;
+
+    &:focus-within,
+    &.is-focused {
+        box-shadow: 0 0 0 2px var(--f-focus-shadow-color);
+    }
+
+    &:hover,
+    &:focus-within,
+    &.is-focused {
+        border-color: var(--f-primary-color);
+    }
+
+    &.is-error:not(.is-disabled) {
+        border-color: var(--f-danger-color);
+        &:focus {
+            box-shadow: 0 0 0 2px var(--f-focus-danger-shadow-color);
+        }
+    }
+
+    &.is-disabled {
+        color: var(--f-text-color-disabled);
+        background-color: var(--f-disabled-color-light);
+        cursor: not-allowed;
+        opacity: 1;
+        &:focus-within {
+            box-shadow: none;
+        }
+        &:hover,
+        &:focus-within {
+            border-color: var(--f-border-color-base);
+        }
+        > .@{range-input-prefix-cls}-inner {
+            background-color: var(--f-disabled-color-light);
+        }
+    }
+
+    &-inner {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        outline: none;
+        &::placeholder {
+            color: var(--f-text-color-caption);
+        }
+    }
+
+    &-separator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        padding: 0 @padding-xs;
+        color: var(--f-border-color-base);
+    }
+    &-suffix {
+        padding-left: @padding-xs;
+        color: var(--f-border-color-base);
+    }
+}

@@ -1,0 +1,149 @@
+@import "./token.less";
+
+@btn-cls: ~"@{prefix}-btn";
+
+.@{btn-cls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  min-height: @miniHeight;
+  font-weight: 400;
+  line-height: 1;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  opacity: 1;
+  .no-select;
+  .transition-all-2-ease();
+}
+
+.btn-shape(@shape, @size) {
+  .@{btn-cls}-@{shape}-@{size} {
+    width: ~"@{btn-@{size}-@{shape}-width}";
+    height: ~"@{btn-size-@{size}-height}";
+    font-size: ~"@{btn-size-@{size}-font-size}";
+    padding: ~"@{btn-@{size}-@{shape}-padding}";
+    border-radius: ~"@{btn-@{size}-@{shape}-radius}";
+  }
+}
+
+.btn-status(@type, @status) {
+  .@{btn-cls}-type-@{type}-status-@{status} {
+    color: ~"@{btn-type-@{type}-status-@{status}-color}";
+    background-color: ~"@{btn-type-@{type}-status-@{status}-bg}";
+    border: 1px~ "@{btn-type-@{type}-border}" ~"@{btn-type-@{type}-status-@{status}-border}";
+
+    &:hover {
+      color: ~"@{btn-type-@{type}-status-@{status}-color-hover}";
+      background-color: ~"@{btn-type-@{type}-status-@{status}-bg-hover}";
+      border: 1px~ "@{btn-type-@{type}-border}" ~"@{btn-type-@{type}-status-@{status}-border-hover}";
+    }
+
+    &:active {
+      color: ~"@{btn-type-@{type}-status-@{status}-color-active}";
+      background-color: ~"@{btn-type-@{type}-status-@{status}-bg-active}";
+      border: 1px~ "@{btn-type-@{type}-border}" ~"@{btn-type-@{type}-status-@{status}-border-active}";
+    }
+  }
+}
+
+.btn-status(normal, normal);
+.btn-status(primary, normal);
+.btn-status(plain, normal);
+.btn-status(dashed, normal);
+.btn-status(text, normal);
+
+.btn-status(normal, primary);
+.btn-status(primary, primary);
+.btn-status(plain, primary);
+.btn-status(dashed, primary);
+.btn-status(text, primary);
+
+.btn-status(normal, success);
+.btn-status(primary, success);
+.btn-status(plain, success);
+.btn-status(dashed, success);
+.btn-status(text, success);
+
+.btn-status(normal, warning);
+.btn-status(primary, warning);
+.btn-status(plain, warning);
+.btn-status(dashed, warning);
+.btn-status(text, warning);
+
+.btn-status(normal, danger);
+.btn-status(primary, danger);
+.btn-status(plain, danger);
+.btn-status(dashed, danger);
+.btn-status(text, danger);
+
+.btn-shape(square, large);
+.btn-shape(square, normal);
+.btn-shape(square, small);
+.btn-shape(square, mini);
+
+.btn-shape(circle, large);
+.btn-shape(circle, normal);
+.btn-shape(circle, small);
+.btn-shape(circle, mini);
+
+.btn-shape(round, large);
+.btn-shape(round, normal);
+.btn-shape(round, small);
+.btn-shape(round, mini);
+
+button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: no-drop;
+  .transition-all-2-ease();
+}
+
+.@{btn-cls}-shape-round {
+  border-radius: 40px;
+}
+
+[class^="ri-"],
+[class*="ri-"] {
+  display: inline-block;
+}
+
+.has-default-slot {
+  .left-icon {
+    margin-right: 4px;
+  }
+}
+
+.is-block {
+  width: 100%;
+}
+
+// 加载
+.bp-icon-loading {
+  display: inline-block;
+  line-height: 1;
+  animation: rotating 1s linear infinite;
+  -webkit-animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(365deg);
+  }
+}

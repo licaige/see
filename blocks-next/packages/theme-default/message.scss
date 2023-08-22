@@ -1,0 +1,121 @@
+@use './mixins/bem.scss' as *;
+
+@include b(message) {
+  --bn-message-height: 56px;
+  --bn-message-width: 420px;
+  --bn-border-radius: 8px;
+  --bn-success-background-color: #effcf9;
+  --bn-success-color: #2ed4a9;
+  --bn-warning-background-color: #fffbee;
+  --bn-warning-color: #ffc420;
+  --bn-strong-background-color: #fff4ee;
+  --bn-strong-color: #ff7125;
+  --bn-error-background-color: #fef2f2;
+  --bn-error-color: #f12525;
+  --bn-info-background-color: #edf2fc;
+  --bn-info-color: #909399;
+
+  position: fixed;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  border-radius: var(--bn-border-radius);
+  padding: 0 16px 0 24px;
+  width: var(--bn-message-width);
+  height: var(--bn-message-height);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  transform: translate(-50%, 0);
+
+  @include e(show-close) {
+    justify-content: space-between;
+  }
+
+  @include e(close-icon) {
+    position: relative;
+    display: inline-block;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #c5c9d4;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      height: 70%;
+      background-color: #fff;
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1px;
+      height: 70%;
+      background-color: #bfc5d2;
+      transition: background-color 0.2s;
+      content: '';
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1px;
+      height: 70%;
+      background-color: #bfc5d2;
+      transition: background-color 0.2s;
+      content: '';
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include m(success) {
+    font-weight: 600;
+    color: var(--bn-success-color);
+    background-color: var(--bn-success-background-color);
+  }
+
+  @include m(warning) {
+    font-weight: 600;
+    color: var(--bn-warning-color);
+    background-color: var(--bn-warning-background-color);
+  }
+
+  @include m(strong) {
+    font-weight: 600;
+    color: var(--bn-strong-color);
+    background-color: var(--bn-strong-background-color);
+  }
+
+  @include m(error) {
+    font-weight: 600;
+    color: var(--bn-error-color);
+    background-color: var(--bn-error-background-color);
+  }
+
+  @include m(info) {
+    font-weight: 600;
+    color: var(--bn-info-color);
+    background-color: var(--bn-info-background-color);
+  }
+
+  @include when(center) {
+    justify-content: center;
+  }
+}
+
+.#{$namespace}-message-slide-top-enter-from,
+.#{$namespace}-message-slide-top-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.#{$namespace}-message-slide-top-enter-to {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

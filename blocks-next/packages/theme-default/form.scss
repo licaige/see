@@ -1,0 +1,124 @@
+@use './mixins/bem.scss' as *;
+
+@include b(form) {
+  @include m(inline) {
+    width: auto;
+    .#{$namespace}-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .#{$namespace}-form-item__content {
+      display: inline-flex;
+      vertical-align: top;
+    }
+
+    .#{$namespace}-input {
+      --bn-input-width: 220px;
+    }
+  }
+
+  @include m(top) {
+    .#{$namespace}-form-item__label {
+      display: inline-block;
+      float: none;
+      text-align: left;
+    }
+  }
+
+  @include m(left) {
+    .#{$namespace}-form-item__label {
+      text-align: left;
+    }
+  }
+}
+
+@include b(form-item) {
+  --bn-form-item-font-size: 14px;
+  --bn-form-item-error-color: var(--bn-danger);
+  --bn-form-item-error-font-size: 12px;
+  --bn-form-item-line-height: 40px;
+  --bn-form-item-required-color: #f56c6c;
+}
+
+@include b(form-item) {
+  margin-bottom: 22px;
+
+  // 嵌套表单不给marginBottom
+  .#{$namespace}-form-item {
+    margin-bottom: 0;
+  }
+
+  @include e(label) {
+    float: left;
+    padding: 0 12px 0 0;
+    font-size: var(--bn-form-item-font-size);
+    text-align: right;
+    color: var(--bn-text-color);
+    vertical-align: middle;
+    box-sizing: border-box;
+    line-height: var(--bn-form-item-line-height);
+  }
+
+  @include e(content) {
+    position: relative;
+    line-height: var(--bn-form-item-line-height);
+  }
+
+  @include e(error) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 4px;
+    font-size: var(--bn-form-item-error-font-size);
+    color: var(--bn-form-item-error-color);
+    line-height: 1;
+  }
+
+  @include when(required) {
+    .#{$namespace}-form-item__label:before {
+      margin-right: 4px;
+      color: var(--bn-form-item-required-color);
+      content: '*';
+    }
+  }
+
+  @include when(error) {
+    .#{$namespace}-input__wrapper,
+    .#{$namespace}-textarea__inner {
+      border-color: var(--bn-form-item-error-color);
+    }
+  }
+}
+
+
+.form-blink-enter-from,
+.form-blink-appear-from {
+  opacity: 0;
+}
+
+.form-blink-enter-to,
+.form-blink-appear-to {
+  opacity: 1;
+}
+
+.form-blink-enter-active,
+.form-blink-appear-active {
+  transition: opacity 0.3s linear;
+  animation: blink 0.5s linear;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

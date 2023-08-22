@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --u-transition-duration: .3s;
+}
+
+@keyframes u-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.u-fade-enter-active {
+  animation: u-fade var(--u-transition-duration);
+}
+
+.u-fade-leave-active {
+  animation: u-fade var(--u-transition-duration) reverse;
+}
+
+@keyframes u-shake {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.u-shake {
+  animation: u-shake calc(var(--u-transition-duration) / 2);
+}
+
+@keyframes u-scale {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.u-scale {
+  animation: u-scale var(--u-transition-duration);
+}
+
+.u-scale-reverse {
+  animation: u-scale var(--u-transition-duration) reverse;
+}
+
+@keyframes u-slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.u-slide-up {
+  animation: u-slide-up var(--u-transition-duration);
+}
+
+.u-slide-up-reverse {
+  animation: u-slide-up var(--u-transition-duration) reverse;
+}
+
+@keyframes u-slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.u-slide-down {
+  animation: u-slide-down var(--u-transition-duration);
+}
+
+.u-slide-down-reverse {
+  animation: u-slide-down var(--u-transition-duration) reverse;
+}
+
+@keyframes u-slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.u-slide-left {
+  animation: u-slide-left var(--u-transition-duration);
+}
+
+.u-slide-left-reverse {
+  animation: u-slide-left var(--u-transition-duration) reverse;
+}
+
+@keyframes u-slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.u-slide-right {
+  animation: u-slide-right var(--u-transition-duration);
+}
+
+.u-slide-right-reverse {
+  animation: u-slide-right var(--u-transition-duration) reverse;
+}

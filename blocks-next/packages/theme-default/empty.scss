@@ -1,0 +1,19 @@
+@use './mixins/bem.scss' as *;
+
+@include b(empty) {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  @include e(image) {
+    color: #aaaeb7;
+  }
+
+  @include e(description) {
+    font-size: 14px;
+    color: rgb(169 174 184);
+  }
+}

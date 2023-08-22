@@ -1,0 +1,34 @@
+@import './base/size.scss';
+@import './base/font.scss';
+
+// 字体
+$font-size-map: (
+  mini: $tu-font-size-mini,
+  small: $tu-font-size-small,
+  medium: $tu-font-size-medium,
+  large: $tu-font-size-large
+);
+
+// 尺寸
+$size-map: (
+  mini: $tu-size-mini,
+  small: $tu-size-small,
+  medium: $tu-size-medium,
+  large: $tu-size-large
+);
+
+// 间距
+$gap-map: (
+  mini: 2px,
+  small: 4px,
+  medium: 6px,
+  large: 8px
+);
+
+// 图标悬停背景尺寸
+$icon-hover-bg-size-map: (
+  mini: 14px,
+  small: 16px,
+  medium: 18px,
+  large: 18px
+);

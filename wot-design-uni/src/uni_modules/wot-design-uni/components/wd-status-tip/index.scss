@@ -1,0 +1,35 @@
+@import '../common/abstracts/variable';
+@import '../common/abstracts/mixin';
+
+.wot-theme-dark {
+  background-color: $-dark-background2;
+  @include b(status-tip) {
+    @include e(text) {
+      color: $-dark-color3;
+    }
+  }
+}
+
+@include b(status-tip) {
+  padding: $-statustip-padding;
+  width: 100%;
+  margin: 0 auto;
+  color: $-statustip-color;
+  font-size: $-statustip-fs;
+  box-sizing: border-box;
+
+  @include e(image) {
+    margin: 0 auto;
+    display: block;
+    width: 300px;
+    height: 200px;
+  }
+  @include e(text) {
+    margin: 20px auto 0;
+    font-size: $-statustip-fs;
+    line-height: $-statustip-line-height;
+    color: $-statustip-color;
+    text-align: center;
+    word-break: break-all;
+  }
+}

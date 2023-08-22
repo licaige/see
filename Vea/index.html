@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <title>组件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* :root {
+      --button-height: 32px;
+      --font-size: 14px;
+      --button-bg: white;
+
+      --border-color: #999;
+      --border-radius: 4px;
+      --color: #333;
+
+      --border-color-hover: #666;
+      --button-active-bg: #eee;
+    }
+
+    body {
+      font-size: var(--font-size);
+    } */
+
+
+
+    .box {
+      margin: 20px;
+    }
+
+    /* row外层样式 */
+    .demo {
+      background: #ddd;
+      border: 1px solid #666;
+      height: 50px;
+    }
+
+    /* layout组件部分 */
+    .sider {
+      background: #666;
+      width: 150px;
+    }
+
+    .header {
+      background: #999;
+      height: 20px;
+    }
+
+    .footer {
+      background: #ccc;
+      height: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="app">
+
+     <!-- tabs组件 -->
+     <div class="box">
+       <e-collapse :selected.sync="selectedTab2" single>
+        
+         <e-collapse-item title="标题1" name="1"> 内容1 </e-collapse-item>
+         <e-collapse-item title="标题2" name="2"> 内容2 </e-collapse-item>
+         <e-collapse-item title="标题3" name="3"> 内容3 </e-collapse-item>
+       </e-collapse>
+     </div>
+
+      
+
+    <!-- popover组件 -->
+    <div class="box" style="padding: 50px;">
+
+      <e-popover position="top">
+        <template #content="{close}">
+          <div> 
+            popover内容
+            <div @click="close" style="cursor: pointer;">关闭</div>
+          </div>
+        </template>
+
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
+
+      <e-popover position="bottom">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
+
+      <e-popover position="left">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
+
+      <e-popover position="right">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">点我</e-button>
+      </e-popover>
+
+      <e-popover position="top" trigger="mouseenter">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">hover1</e-button>
+      </e-popover>
+
+      <e-popover position="bottom" trigger="mouseenter">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">hover2</e-button>
+      </e-popover>
+
+      <e-popover position="right" trigger="mouseenter">
+        <template v-slot:content>
+          <div>popover内容</div>
+        </template>
+        <e-button :has-loading="false">hover2</e-button>
+      </e-popover>
+
+    </div>
+
+
+    <!-- tabs组件 -->
+    <div class="box">
+
+      <e-tabs :selected.sync="selectedTab">
+
+        <e-tabs-head>
+          <!-- 可以设置头部右侧的 按钮等内容 -->
+          <template slot="actions">
+            <button>设置</button>
+          </template>
+
+          <e-tabs-item name="woman" disabled>
+            <!-- 头部内内容 可以设置icon图标-->
+            美女
+          </e-tabs-item>
+
+          <!-- 头部 可以禁用-->
+          <e-tabs-item name="finance">
+            财经
+          </e-tabs-item>
+
+          <e-tabs-item name="sports">
+            <!-- <e-icon icon-name="settings"></e-icon> -->
+            体育
+          </e-tabs-item>
+
+        </e-tabs-head>
+
+        <e-tabs-body>
+          <!-- 每个tab对应内容, name属性表示对应在 哪个tab导航内-->
+          <e-tabs-pane name="woman">
+            美女相关资讯
+          </e-tabs-pane>
+
+          <e-tabs-pane name="finance">
+            财经相关资讯
+          </e-tabs-pane>
+
+          <e-tabs-pane name="sports">
+            体育相关资讯
+          </e-tabs-pane>
+
+        </e-tabs-body>
+
+      </e-tabs>
+
+    </div>
+
+
+    <!-- toast组件 -->
+    <div class="box">
+      <!-- <button @click="showToast">点我</button> -->
+
+      <button @click="showToast1">toast- top</button>
+      <button @click="showToast2">toast- middle</button>
+      <button @click="showToast3">toast- bottom</button>
+    </div>
+
+
+
+    <!-- layout布局组件 -->
+    <div class="box">
+
+      <!-- 左- 中下布局 -->
+      <e-layout>
+        <e-sider>sider</e-sider>
+
+        <e-layout>
+          <e-header>header</e-header>
+          <e-content>content</e-content>
+          <e-footer>footer</e-footer>
+        </e-layout>
+      </e-layout>
+
+    </div>
+
+
+
+
+
+    <!-- 网格组件 -->
+    <div class="box" style="outline: 1px solid grey;">
+
+      <!--S1 设置 span跨度-->
+      <e-row>
+        <e-col span="2">2 </e-col>
+        <e-col span="20" offset="2">22 + offset=2 </e-col>
+      </e-row>
+
+      <!--S2 设置 offset边距-->
+      <e-row>
+        <e-col span="4">4</e-col>
+        <e-col span="4" offset="6">4 + offset=6 </e-col>
+        <e-col span="8" offset="2">8 + offset=2 </e-col>
+      </e-row>
+
+      <!--S3 设置 gutter边距-->
+      <e-row gutter="20">
+        <e-col>1</e-col>
+        <e-col>2</e-col>
+        <e-col>3</e-col>
+      </e-row>
+
+      <!--S4 设置 媒体查询-->
+      <e-row>
+        <e-col span="23" offset="1" :narrow-pc="{span:12, offset:12}">
+          <div class="demo">media</div>
+        </e-col>
+      </e-row>
+
+    </div>
+
+
+
+    <!-- input组件 -->
+    <div class="box">
+      <e-input value="Normal" @change="inputChange"></e-input>
+      <e-input value="disabled" :disabled="true"></e-input>
+      <e-input value="readonly" :readonly="true"></e-input>
+    </div>
+
+    <div class="box">
+      <e-input value="Error" error-msg="这是错误信息"></e-input>
+    </div>
+
+
+    <!-- 按钮组件 -->
+    <e-button>
+      按钮1
+    </e-button>
+
+    <e-button icon-type="settings">
+      按钮2
+    </e-button>
+
+    <e-button icon-type="settings" icon-position="right">
+      按钮3
+    </e-button>
+
+    <e-button icon-type="settings" :has-loading="false">
+      按钮4
+    </e-button>
+
+    <!-- 按钮组   -->
+    <e-button-group>
+      <e-button icon-type="left">
+        上一页
+      </e-button>
+
+      <e-button>
+        更多
+      </e-button>
+
+      <e-button icon-type="right" icon-position="right">
+        下一页
+      </e-button>
+
+    </e-button-group>
+
+
+    <!--  图标组件示例  -->
+    <e-icon icon-name="download" :style="{margin: `25px`}"></e-icon>
+
+
+    <!-- 单元测试部分 -->
+    <div id="test"></div>
+
+
+  </div>
+
+
+  <script src="./src/app.js"></script>
+</body>
+
+</html>

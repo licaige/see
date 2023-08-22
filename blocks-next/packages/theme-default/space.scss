@@ -1,0 +1,31 @@
+@use './mixins/bem.scss' as *;
+
+@include b(space) {
+  display: inline-flex;
+
+  @include e(horizontal) {
+    &-center {
+      align-items: center;
+    }
+
+    &-start {
+      align-items: flex-start;
+    }
+
+    &-end {
+      align-items: flex-end;
+    }
+
+    &-baseline {
+      align-items: baseline;
+    }
+  }
+
+  @include e(vertical) {
+    flex-direction: column;
+  }
+
+  @include when(fill) {
+    display: flex;
+  }
+}

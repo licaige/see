@@ -1,0 +1,27 @@
+@use './mixins/bem.scss' as *;
+
+@include b(loading) {
+  @include e(mask) {
+    --bn-mask-color: rgb(255 255 255 / 70%);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: var(--bn-mask-color);
+    flex-direction: column;
+    user-select: none;
+  }
+
+  @include e(text) {
+    margin-top: 10px;
+    font-size: var(--bn-font-size);
+    color: inherit;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "脚本命令",
+  "main": "index.ts",
+  "author": "whj",
+  "type": "module",
+  "devDependencies": {
+    "inquirer": "^9.2.7",
+    "rollup": "^3.26.2",
+    "esbuild": "^0.18.11",
+    "fs-extra": "^11.1.1",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "@types/inquirer": "^9.0.3",
+    "prettier": "^3.0.0",
+    "@types/prettier": "^2.7.3",
+    "picocolors": "^1.0.0",
+    "@ui/shared": "workspace:*"
+  }
+}

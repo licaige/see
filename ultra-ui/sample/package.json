@@ -1,0 +1,15 @@
+{
+  "name": "sample",
+  "scripts": {
+    "play": "vite dev"
+  },
+  "type": "module",
+  "dependencies": {
+    "ultra-ui": "workspace:*",
+    "@ui/styles": "workspace:*",
+    "@ui/components": "workspace:*",
+    "vite-helper": "workspace:*",
+    "vue-router": "^4.2.4",
+    "icon-ultra": "^2.0.16"
+  }
+}

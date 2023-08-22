@@ -1,0 +1,265 @@
+@use './mixins/bem.scss' as *;
+
+@include b(input) {
+  --bn-input-border-color: var(--bn-border-color);
+  --bn-input-border-radius: 4px;
+  --bn-input-background-color: #fff;
+  --bn-input-disabled-background-color: rgb(245 247 251 / 50%);
+  --bn-input-disabled-border-color: var(--bn-color-5);
+  --bn-input-disabled-text-color: var(--bn-color-3);
+  --bn-input-color: var(--bn-color-1);
+  --bn-input-font-size: var(--bn-font-size);
+  --bn-input-placeholder-color: var(--bn-color-3);
+  --bn-input-height: 40px;
+  --bn-input-icon-color: var(--bn-color-3);
+  --bn-input-focus-border-color: var(--bn-primary);
+  --bn-input-hover-border-color: rgb(188 196 214 / 100%);
+}
+
+@include b(input) {
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  @include e(wrapper) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bn-input-border-color);
+    border-radius: var(--bn-input-border-radius);
+    padding: 0 12px;
+    width: 100%;
+    font-size: var(--bn-input-font-size);
+    color: var(--bn-input-color);
+    background-color: var(--bn-input-background-color);
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-sizing: border-box;
+    flex-grow: 1;
+    background-image: none;
+    transform: translateZ(0);
+
+    &.is-hover:not(.is-disabled) {
+      border-color: var(--bn-input-hover-border-color);
+    }
+
+    &.is-focus:not(.is-disabled) {
+      border-color: var(--bn-input-focus-border-color);
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+
+      &:not(.#{$namespace}-input--card) {
+        border-color: var(--bn-input-disabled-border-color);
+        color: var(--bn-input-disabled-text-color);
+        background-color: var(--bn-input-disabled-background-color);
+      }
+
+      &.#{$namespace}-input--card {
+        opacity: 0.8;
+      }
+          
+    }
+  }
+
+  @include e(inner) {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(var(--bn-input-height) - 2px);
+    font-size: inherit;
+    color: inherit;
+    background: 0 0;
+    outline: none;
+    box-sizing: border-box;
+    flex-grow: 1;
+    line-height: 1;
+
+    &::placeholder {
+      color:var(--bn-input-placeholder-color);
+    }
+
+    &[readonly] {
+      cursor: default;
+    }
+
+    &:disabled {
+      color: var(--bn-input-disabled-text-color);
+      pointer-events: none;
+    }
+
+    &:disabled::placeholder {
+      color: var(--bn-input-placeholder-color);
+    }
+  }
+
+  @include e(icon) {
+    display: flex;
+    flex-shrink: 0;
+    font-size: inherit;
+    color: var(--bn-input-icon-color);
+  }
+
+  @include e(prefix) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+
+    .#{$namespace}-input__icon {
+      margin-right: 8px;
+    }
+  }
+
+  @include e(suffix) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    .#{$namespace}-input__icon {
+      margin-left: 8px;
+    }
+  }
+
+  @include e(count) {
+    flex-shrink: 0;
+    margin-left: 8px;
+    letter-spacing: -1px;
+    color: var(--bn-color-3);
+  }
+
+  @include e(eye) {
+    cursor: pointer;
+  }
+
+  @include e(clearable) {
+    cursor: pointer;
+  }
+
+  @include m(small) {
+    --bn-input-height: 32px;
+  }
+
+
+  @include m(large) {
+    --bn-input-height: 48px;
+  }
+
+  @include m(card) {
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgb(36 41 52 / 6%);
+
+    &:not(.is-disabled):hover {
+      --bn-input-placeholder-color: rgb(100 107 122 / 100%);
+    }
+  }
+
+  @include when(over-limit) {
+    --bn-input-color: var(--bn-danger);
+    --bn-input-border-color: var(--bn-danger);
+  }
+}
+
+@include b(textarea) {
+  --bn-input-font-size: var(--bn-font-size);
+  --bn-input-border-color: var(--bn-border-color);
+  --bn-input-border-radius: 4px;
+  --bn-input-placeholder-color: var(--bn-color-3);
+  --bn-input-disabled-border-color: var(--bn-color-5);
+  --bn-input-focus-border-color: var(--bn-primary);
+  --bn-input-hover-border-color: rgb(188 196 214 / 100%);
+  --bn-input-color: var(--bn-color-1);
+  --bn-input-disabled-text-color: var(--bn-color-3);
+  --bn-input-background-color: #fff;
+  --bn-input-disabled-background-color: rgb(245 247 251 / 50%);
+
+}
+
+@include b(textarea) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: var(--bn-input-font-size);
+
+  @include e(wrapper) {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--bn-input-border-color);
+    border-radius: var(--bn-input-border-radius);
+    font-size: var(--bn-input-font-size);
+    color: var(--bn-input-color);
+    background-color: var(--bn-input-background-color);
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-image: none;
+    transform: translateZ(0);
+
+    &.is-hover:not(.is-disabled) {
+      --bn-input-border-color: var(--bn-input-hover-border-color);
+    }
+
+    &.is-focus:not(.is-disabled) {
+      --bn-input-border-color: var(--bn-primary);
+    }
+
+    &.is-disabled {
+      border-color: var(--bn-input-disabled-border-color);
+      color: var(--bn-input-disabled-text-color);
+      background-color: var(--bn-input-disabled-background-color);
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(inner) {
+    display: block;
+    border: 0;
+    padding: 5px 15px;
+    width: 100%;
+    font-size: inherit;
+    color: var(--bn-input-color);
+    background: 0 0;
+    outline: none;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    line-height: 1.5;
+    box-sizing: border-box;
+    background-image: none;
+
+    &::placeholder {
+      color: var(--bn-input-placeholder-color);
+    }
+
+    &[readonly] {
+      cursor: default;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      color: var(--bn-input-disabled-text-color);
+    }
+
+    &:disabled::placeholder {
+      color: var(--bn-input-placeholder-color);
+    }
+  }
+
+  @include e(count) {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--bn-color-3);
+    flex-shrink: 0;
+    letter-spacing: -1px;
+    line-height: 14px;
+  }
+
+  @include when(over-limit) {
+    --bn-input-color: var(--bn-danger);
+    --bn-input-border-color: var(--bn-danger);
+  }
+}

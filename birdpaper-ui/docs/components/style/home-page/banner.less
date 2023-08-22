@@ -1,0 +1,125 @@
+.home-page {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: calc(var(--vp-layout-max-width) - 64px);
+
+  &-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 40px 0 30px;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      transition: all 0.2s ease;
+
+      .app-name {
+        position: relative;
+        font-size: 50px;
+        font-weight: bold;
+        color: #1677ff;
+        line-height: 1.4;
+        width: max-content;
+        .font-quick;
+
+        .brage-version {
+          position: absolute;
+          top: -1px;
+          right: -32px;
+          border: 2px solid #ffffff;
+          border-radius: 12px;
+          cursor: pointer;
+
+          &-inner {
+            font-size: 12px;
+            border: 2px solid #1677ff;
+            border-radius: 12px;
+            padding: 0 6px;
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      .app-intro {
+        margin: 10px 0;
+        font-size: 28px;
+        font-weight: bold;
+        color: #1f1f1f;
+        .font-quick;
+
+        .text-en {
+          font-size: 16px;
+          color: #8c8c8c;
+          margin-top: 40px;
+          font-weight: 500;
+          letter-spacing: 0.4px;
+          display: block;
+        }
+      }
+
+      .btn-area {
+        margin-top: 20px;
+      }
+    }
+
+    .right {
+      width: 50%;
+      text-align: right;
+      transition: all 0.2s ease;
+
+      img {
+        width: 380px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .home-page {
+    &-banner {
+      flex-direction: column-reverse;
+      padding: 0 40px;
+      transition: all 0.2s ease;
+
+      .left {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        .app-name {
+          font-size: 48px;
+        }
+
+        .app-intro {
+          font-size: 22px;
+
+          .text-en {
+            margin-top: 20px;
+            font-size: 14px;
+            letter-spacing: 0;
+          }
+        }
+      }
+
+      .right {
+        width: 100%;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        img {
+          width: 280px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "strict": true,
+    "target": "ES2018",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "composite": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "disableSizeLimit": true,
+    "allowJs": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "types": ["node", "unplugin-vue-macros/macros-global"],
+  }
+}

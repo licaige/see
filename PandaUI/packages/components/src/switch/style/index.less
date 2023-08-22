@@ -1,0 +1,62 @@
+@prefix: pd;
+
+.@{prefix}-switch {
+  position: relative;
+  height: 18px;
+  transition: background 0.2s;
+  width: var(--switch-width);
+  background: var(--inactive-color);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  .@{prefix}-switch__input {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  .@{prefix}-switch_action {
+    position: absolute;
+    transition: 0.2s;
+    left: 2px;
+    top: 2px;
+    z-index: 0;
+    height: 14px;
+    width: 14px;
+    background: #fff;
+    border-radius: 50%;
+  }
+  &.is-checked {
+    background: var(--active-color);
+    .@{prefix}-switch_action {
+      left: 100%;
+      background: #fff;
+      margin-left: -16px;
+    }
+  }
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// 文字描述
+.inactive-text {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-right: 1%;
+    cursor: pointer;
+}
+.active-text {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-left: 1%;
+    cursor: pointer;
+}
+.selected-text-color {
+    color: var(--text-color)
+}

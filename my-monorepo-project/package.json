@@ -1,0 +1,16 @@
+{
+  "name": "my-monorepo-project",
+  "version": "1.0.0",
+  "description": "",
+  "exports": "./index.js",
+  "type": "module",
+  "scripts": {
+    "preinstall": "node ./script/preinstall.js"
+  },
+  "keywords": [],
+  "author": "",
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "ISC"
+}

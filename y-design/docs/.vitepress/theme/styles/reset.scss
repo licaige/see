@@ -1,0 +1,47 @@
+/**
+ * 重写Vitepress默认样式
+ */
+
+/* 主页logo */
+.image-src {
+  max-width: 280px !important;
+}
+/* 主页按钮 */
+.VPButton.medium {
+  border-radius: 8px !important;
+  border: none;
+}
+/* tabbar */
+.VPNavBarMenuLink:hover {
+  color: #6379f6 !important;
+}
+.VPNavBarMenuLink.active {
+  color: #6379f6 !important;
+}
+/* 右侧边栏 */
+.VPDocAsideOutline .active {
+  color: #6379f6 !important;
+  font-weight: 600 !important;
+}
+.outline-marker {
+  background-color: #6379f6 !important;
+  width: 3px !important;
+  border-top-right-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+}
+/* 左侧边栏 */
+.VPSidebarItem.level-1.is-active > .item .link > .text {
+  color: #6379f6 !important;
+  font-weight: 600 !important;
+}
+.VPSidebarItem .is-active {
+  transition: all 0.2s;
+  background-color: #e8ebfb !important;
+  border-radius: 6px !important;
+}
+.VPSidebarItem .item {
+  padding-left: 8px !important;
+}
+.VPSidebarItem .VPLink:hover p {
+  color: #6379f6 !important;
+}

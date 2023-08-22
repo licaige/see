@@ -1,0 +1,44 @@
+
+
+.flex-box() {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pager-size(@min-width; @height; @line-height; @border-radius) {
+    min-width: @min-width;
+    height: @height;
+    line-height: @line-height;
+    border-radius: @border-radius;
+}
+
+.pager-color(@color; @background; @border) {
+    color: @color;
+    background: @background;
+    border-color: @border;
+}
+
+.pager-active(@color; @background; @border) {
+    .pager-color(@color, @background, @border);
+}
+
+.pager-hover(@color; @background; @border) {
+    &:hover {
+        .pager-color(@color; @background; @border);
+    }
+}
+
+.pagination-disabled() {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        --f-pager-item-color: var(--f-disabled-color-base);
+        --f-pager-item-bg-color: var(--f-disabled-color-light);
+        --f-pager-item-border-color: var(--f-disabled-color-base);
+        text-shadow: none;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+}

@@ -1,0 +1,160 @@
+{
+  "components/": [
+    {
+      "text": "Basic 基础组件",
+      "items": [
+        {
+          "text": "按钮 Button",
+          "link": "button"
+        },
+        {
+          "text": "间距 Space",
+          "link": "space"
+        },
+        {
+          "text": "图标 Icon",
+          "link": "icon"
+        }
+      ]
+    },
+    {
+      "text": "表单组件 Form",
+      "items": [
+        {
+          "text": "输入框 Input",
+          "link": "input"
+        },
+        {
+          "text": "复选框 Checkbox",
+          "link": "checkbox"
+        },
+        {
+          "text": "单选框 Radio",
+          "link": "radio"
+        },
+        {
+          "text": "开关 Switch",
+          "link": "switch"
+        },
+        {
+          "text": "选择器 Select",
+          "link": "select"
+        },
+        {
+          "text": "级联选择 Cascader",
+          "link": "cascader"
+        },
+        {
+          "text": "日期选择器 DatePicker",
+          "link": "datePicker",
+          "promotion": "alpha.33"
+        },
+        {
+          "text": "树选择 TreeSelect",
+          "link": "treeSelect",
+          "promotion": "alpha.36"
+        },
+        {
+          "text": "表单 Form",
+          "link": "form"
+        }
+      ]
+    },
+    {
+      "text": "反馈 Feedback",
+      "items": [
+        {
+          "text": "对话框 Dialog",
+          "link": "dialog"
+        },
+        {
+          "text": "消息通知 Message",
+          "link": "message"
+        },
+        {
+          "text": "弹框 MessageBox",
+          "link": "messageBox"
+        },
+        {
+          "text": "抽屉 Drawer",
+          "link": "drawer"
+        },
+        {
+          "text": "通知 Notification",
+          "link": "notification"
+        },
+        {
+          "text": "气泡确认框 Popconfirm",
+          "link": "popconfirm"
+        },
+        {
+          "text": "加载 Loading",
+          "link": "loading"
+        },
+        {
+          "text": "进度条 Progress",
+          "link": "progress"
+        }
+      ]
+    },
+    {
+      "text": "数据 Data",
+      "items": [
+        {
+          "text": "空状态 Empty",
+          "link": "empty"
+        },
+        {
+          "text": "表格 Table",
+          "link": "table"
+        },
+        {
+          "text": "标签页 Tabs",
+          "link": "tabs"
+        },
+        {
+          "text": "分页器 Pagination",
+          "link": "pagination"
+        },
+        {
+          "text": "文字气泡 Tooltip",
+          "link": "tooltip"
+        },
+        {
+          "text": "标签 Tag",
+          "link": "tag"
+        },
+        {
+          "text": "数字角标 Badge",
+          "link": "badge"
+        },
+        {
+          "text": "描述列表 Descriptions",
+          "link": "descriptions"
+        },
+        {
+          "text": "下拉菜单 Dropdown",
+          "link": "dropdown"
+        },
+        {
+          "text": "树 Tree",
+          "link": "tree",
+          "promotion": "alpha.35"
+        }
+      ]
+    },
+    {
+      "text": "其他 Others",
+      "items": [
+        {
+          "text": "滚动条 Scrollbar",
+          "link": "scrollbar"
+        },
+        {
+          "text": "弹出层 Popup",
+          "link": "popup"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+@import '../../style/index';
+@import './mixin.less';
+
+@popper-prefix-cls: ~'@{cls-prefix}-popper';
+
+.@{popper-prefix-cls} {
+    position: relative;
+    z-index: @zindex-dropdown;
+    background: var(--f-white);
+    border-radius: var(--f-border-radius-base);
+    box-shadow: @shadow-down;
+
+    &-arrow {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: inherit;
+        visibility: hidden;
+
+        &::before {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: inherit;
+            transform: rotate(45deg);
+            visibility: visible;
+            content: '';
+        }
+    }
+}
+
+.@{popper-prefix-cls}-wrapper {
+    position: absolute; // 防止不是插入到 body 的时候影响所在容器布局
+}
+

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./button/index.js"),u={install(t){t.component(e.default.name,e.default)}};exports.YButton=e.default;exports.default=u;

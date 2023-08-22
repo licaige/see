@@ -1,0 +1,84 @@
+@use './mixins/bem.scss' as *;
+
+@include b(scrollbar) {
+  --bn-scrollbar-track-size: 6px;
+  --bn-scrollbar-track-background-color: transparent;
+  --bn-scrollbar-thumb-color: #edf1f6;
+  --bn-scrollbar-right: 4px;
+  --bn-scrollbar-bottom: 4px;
+  --bn-scrollbar-radius: 3px;
+
+  position: relative;
+  height: 100%;
+
+  @include e(container) {
+    overflow: auto;
+    height: 100%;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .#{$namespace}-scrollbar-thumb {
+      opacity: 1;
+    }
+  }
+
+  @include e(track) {
+    --bn-scrollbar-track-background-color: #ccc;
+  }
+}
+
+@include b(scrollbar-track) {
+  background-color: var(--bn-scrollbar-track-background-color);
+
+  @include e(horizontal) {
+    position: absolute;
+    bottom: var(--bn-scrollbar-bottom);
+    left: 0;
+    box-sizing: border-box;
+    z-index: 100;
+    width: 100%;
+    height: var(--bn-scrollbar-track-size);
+  }
+
+  @include e(vertical) {
+    position: absolute;
+    top: 0;
+    right: var(--bn-scrollbar-right);
+    box-sizing: border-box;
+    z-index: 100;
+    width: var(--bn-scrollbar-track-size);
+    height: 100%;
+  }
+}
+
+@include b(scrollbar-thumb) {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  &.is-dragging {
+    opacity: 1;
+  }
+
+  @include e(horizontal) {
+    position: absolute;
+    top: 50%;
+    border-radius: var(--bn-scrollbar-radius);
+    height: calc(100% - 2px);
+    background-color: var(--bn-scrollbar-thumb-color);
+    transform: translateY(-50%);
+  }
+
+  @include e(vertical) {
+    position: absolute;
+    left: 50%;
+    border-radius: var(--bn-scrollbar-radius);
+    width: calc(100% - 2px);
+    background-color: var(--bn-scrollbar-thumb-color);
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,150 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixin.less';
+
+@steps-prefix-cls: ~'@{cls-prefix}-steps';
+@step-prefix-cls: ~'@{cls-prefix}-step';
+@step-symbol-size: 24px;
+@step-symbol-line-height: @step-symbol-size - 2px;
+
+.@{steps-prefix-cls} {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    .default();
+    .text();
+    .@{step-prefix-cls} {
+        &:last-child {
+            flex: none;
+            .@{step-prefix-cls}-tail {
+                display: none;
+            }
+        }
+    }
+    &.is-vertical {
+        flex-direction: column;
+        .@{step-prefix-cls} {
+            .@{step-prefix-cls}-description {
+                min-height: 10px;
+                margin-bottom: @padding-sm;
+            }
+            .@{step-prefix-cls}-symbol {
+                display: flex;
+                flex-direction: column;
+            }
+            .@{step-prefix-cls}-tail {
+                position: absolute;
+                top: calc(@padding-xs + @step-symbol-size);
+                bottom: @padding-xs;
+                left: (@step-symbol-size / 2);
+                flex: none;
+                width: 1px;
+                height: auto;
+                margin: 0;
+                background: var(--f-border-color-base);
+            }
+            &:last-child {
+                .@{step-prefix-cls}-description {
+                    min-height: auto;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.@{step-prefix-cls} {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    overflow: hidden;
+    vertical-align: top;
+    transition: all @animation-duration-base @ease-base-in;
+    &-symbol {
+        &-wrapper {
+            --f-step-symbol-wrapper-color: inherit;
+            --f-step-symbol-wrapper-border-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--f-step-symbol-wrapper-color);
+            line-height: @step-symbol-line-height;
+            border: var(--f-border-width-base) var(--f-border-style-base) transparent;
+            border-color: var(--f-step-symbol-wrapper-border-color);
+            border-radius: 50%;
+            .square(@step-symbol-size);
+            transition: all @animation-duration-base @ease-base-in;
+        }
+    }
+    &-content {
+        flex: 1;
+        margin-left: calc(@padding-xs / 2);
+    }
+    &-title {
+        display: flex;
+        align-items: center;
+        font-weight: @font-weight-medium;
+        line-height: @step-symbol-size;
+    }
+    &-tail {
+        flex: 1;
+        height: 1px;
+        margin: 0 @padding-xs;
+        background: var(--f-border-color-base);
+    }
+    &-description {
+        width: 100%;
+        margin-top: calc(@padding-xs / 2);
+        font-size: @font-size-caption;
+        line-height: calc(@font-size-caption * @line-height-base / var(--f-font-size-base));
+    }
+    &-icon {
+        display: inline-flex;
+        align-items: center;
+        font-size: @font-size-head;
+    }
+    &.is-wait {
+        color: var(--f-text-color-secondary);
+        .@{step-prefix-cls}-symbol {
+            .@{step-prefix-cls}-symbol-wrapper {
+                --f-step-symbol-wrapper-color: var(--f-text-color-secondary);
+                --f-step-symbol-wrapper-border-color: var(--f-border-color-base);
+            }
+        }
+    }
+    &.is-process {
+        .@{step-prefix-cls}-symbol {
+            .@{step-prefix-cls}-symbol-wrapper {
+                background: var(--f-primary-color);
+
+                --f-step-symbol-wrapper-color: var(--f-white);
+                --f-step-symbol-wrapper-border-color: var(--f-primary-color);
+            }
+        }
+        .@{step-prefix-cls}-tail {
+            background: var(--f-primary-color);
+        }
+    }
+    &.is-finish {
+        color: var(--f-text-color-secondary);
+        .@{step-prefix-cls}-symbol {
+            .@{step-prefix-cls}-symbol-wrapper {
+                --f-step-symbol-wrapper-color: var(--f-primary-color);
+                --f-step-symbol-wrapper-border-color: var(--f-primary-color);
+            }
+        }
+        .@{step-prefix-cls}-tail {
+            background: var(--f-primary-color);
+        }
+    }
+    &.is-error {
+        color: var(--f-danger-color);
+        .@{step-prefix-cls}-symbol {
+            .@{step-prefix-cls}-symbol-wrapper {
+                --f-step-symbol-wrapper-color: var(--f-danger-color);
+                --f-step-symbol-wrapper-border-color: var(--f-danger-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "y-design-ui",
+  "version": "1.0.2",
+  "main": "lib/components/index.js",
+  "module": "es/components/index.mjs",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [
+    "y-design-ui",
+    "vue3组件库"
+  ],
+  "sideEffects": [
+    "**/**/*.css"
+  ],
+  "scripts": {
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yd-coder/y-design"
+  },
+  "author": "屿东",
+  "license": "MIT",
+  "description": "",
+  "typings": "lib/components/index.d.ts"
+}

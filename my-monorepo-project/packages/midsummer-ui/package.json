@@ -1,0 +1,48 @@
+{
+  "name": "midsummer-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts,.tsx,.vue",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "test": "vitest",
+    "build:components": "node scripts/build.cjs"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "fs-extra": "^11.1.1",
+    "lint-staged": "^13.2.3",
+    "markdown-it": "^13.0.1",
+    "mrm": "2",
+    "postcss": "^8.4.27",
+    "scss": "^0.2.4",
+    "tailwindcss": "^3.3.3",
+    "vitepress": "1.0.0-beta.3",
+    "vitepress-theme-demoblock": "^3.0.3",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@testing-library/vue": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.16.1",
+    "happy-dom": "^10.9.0",
+    "prettier": "^3.0.0",
+    "sass": "^1.64.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "0.31.1",
+    "vue-tsc": "^1.8.5"
+  }
+}

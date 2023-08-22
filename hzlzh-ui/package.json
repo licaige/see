@@ -1,0 +1,71 @@
+{
+  "name": "hzlzh-ui",
+  "version": "1.0.10",
+  "type": "module",
+  "description": "",
+  "main": "./lib/cjs/index.cjs",
+  "module": "./lib/es/index.js",
+  "homepage": "https://hzzou.github.io/hzlzh-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hzzou/hzlzh-ui"
+  },
+  "scripts": {
+    "build": "rimraf lib && vite build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/es/index.js",
+      "require": "./lib/cjs/index.cjs"
+    },
+    "./style.css": "./lib/es/style.css",
+    "./lib/es/style.css": "./lib/es/style.css"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/manager-api": "^7.0.20",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.20",
+    "@storybook/vue3-vite": "^7.0.20",
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "eslint": "8.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.12",
+    "eslint-plugin-vue": "^9.14.1",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.1",
+    "storybook": "^7.0.20",
+    "storybook-css-modules-preset": "^1.1.1",
+    "typescript": "^5.0.2",
+    "unplugin-vue-components": "^0.25.1",
+    "vite": "4.0.0",
+    "vite-plugin-dts": "^2.3.0",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vue-tsc": "^1.4.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "cli",
+    "docs",
+    "example"
+  ],
+  "keywords": [],
+  "author": "hzlzh",
+  "license": "ISC"
+}

@@ -1,0 +1,41 @@
+
+.dwloadingmain {
+  // background: rgba($color: #EFF1F3, $alpha: 0.6);
+  // background: rgba($color: #f7f5f1, $alpha: 0.6);
+  background: var(--dw-mask-color);
+}
+
+:root {
+  --el-color-primary: #167EFF;
+  --el-color-danger: #FF4400;
+
+  --dw-bg: #f7f8fa;
+  --dw-box-bg: #fff;
+
+  --dw-dialog-title-bg: #292A2C;
+  --dw-dialog-title-xbg: #4e5969;
+
+  --dw-table-header-color: #292A2C;
+  --dw-table-header-bg: #f2f3f5;
+  --dw-table-column-bg: #1D2129;
+  --dw-mask-color: rgba(247,245,241,  0.6);
+}
+
+
+html.dark {
+  /* 自定义深色背景颜色 */
+  --dw-bg: #101014;
+
+  --dw-box-bg: #18181c;
+
+
+  --dw-dialog-title-bg: #fff;
+  --dw-dialog-title-xbg: #fff;
+
+  --dw-table-header-color: #fff;
+  --dw-table-header-bg: #111;
+  --dw-table-column-bg: #ccc;
+  --el-dialog-bg-color: #2c2c32;
+  --el-bg-color: #2c2c32;
+  --dw-mask-color: rgba(16,16,20, 0.6);
+}

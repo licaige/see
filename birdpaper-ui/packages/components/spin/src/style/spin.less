@@ -1,0 +1,34 @@
+@spin-cls: ~"@{prefix}-spin";
+
+.@{spin-cls} {
+  position: relative;
+
+  &-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    .no-select;
+  }
+
+  .@{spin-cls}-loading {
+    color: @primary-6;
+  }
+
+  .@{spin-cls}-tip {
+    padding: 0;
+    margin: 0;
+    color: @primary-6;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

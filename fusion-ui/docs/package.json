@@ -1,0 +1,28 @@
+{
+  "name": "@fusion-ui/docs",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "fusion-ui docs",
+  "keywords": [
+    "fusion-ui",
+    "components",
+    "ui",
+    "vue"
+  ],
+  "scripts": {
+    "dev": "vitepress dev --port 3147 --host",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "dependencies": {
+    "fusion-ui-iconify": "^1.0.35",
+    "fusion-ui-vue": "workspace:^",
+    "markdown-it": "^13.0.1",
+    "vite-plugin-progress": "^0.0.7"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "unocss": "^0.50.0"
+  }
+}

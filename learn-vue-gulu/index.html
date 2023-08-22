@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>learn-vue-gulu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    img { max-width: 100%; }
+    /* #app { margin: 20px; } */
+    .box { margin: 20px; }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- cascader 组件示例 -->
+    <!-- <l-cascader :data-source="source"></!--> -->
+
+    <!-- 组件 collapse 示例 -->
+    <!-- <div style="padding: 50px;">
+      <l-collapse :selected.sync="selectedTab" single>
+        <l-collapse-item title="标题1" name="1">内容1</l-collapse-item>
+        <l-collapse-item title="标题2" name="2">内容2</l-collapse-item>
+        <l-collapse-item title="标题3" name="3">内容3</l-collapse-item>
+      </l-collapse>
+      {{selectedTab}}
+    </div> -->
+    
+    <!-- 组件 popover 示例 -->
+    <!-- <div style="padding: 50px;">
+      <l-popover>
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>上</l-button>
+      </l-popover>
+  
+      <l-popover position="bottom">
+        <template slot="content" slot-scope="{ close }">
+          <div>
+            popover 内容，你好啊世界，你好啊世界，你好啊世界，你好啊世界，你好啊世界你好啊世界你好啊世界你好啊世界，你好啊世界。
+          </div>
+          <l-button @click="close">关闭</l-button>
+        </template>
+        <l-button>下</l-button>
+      </l-popover>
+
+      <l-popover position="left">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>左</l-button>
+      </l-popover>
+
+      <l-popover position="right">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>右</l-button>
+      </l-popover>
+    </div>
+    <div style="padding: 50px;">
+      <l-popover trigger="hover">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>上</l-button>
+      </l-popover>
+  
+      <l-popover position="bottom" trigger="hover">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>下</l-button>
+      </l-popover>
+
+      <l-popover position="left" trigger="hover">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>左</l-button>
+      </l-popover>
+
+      <l-popover position="right" trigger="hover">
+        <template slot="content">
+          <div>popover 内容</div>
+        </template>
+        <l-button>右</l-button>
+      </l-popover>
+    </div> -->
+
+    <!-- 组件 tabs 示例 -->
+    <!-- <l-tabs selected="selectedTab" @update:selected="selectedTab = $event"> -->
+    <!-- <l-tabs :selected.sync="selectedTab">
+      <l-tabs-head>
+        <template slot="actions">
+          <button>设置</button>
+        </template>
+        <l-tabs-item name="woman" disabled>
+          <l-icon name="settings"></l-icon> 美女
+        </l-tabs-item>
+        <l-tabs-item name="finance">财经</l-tabs-item>
+        <l-tabs-item name="sports">体育</l-tabs-item>
+      </l-tabs-head>
+      <l-tabs-body>
+        <l-tabs-pane name="woman">美女相关资讯</l-tabs-pane>
+        <l-tabs-pane name="finance">财经相关资讯</l-tabs-pane>
+        <l-tabs-pane name="sports">体育相关资讯</l-tabs-pane>
+      </l-tabs-body>
+    </l-tabs> -->
+    
+    <!-- 组件 toast 示例-->
+    <!-- <l-button-group>
+      <l-button @click="showToast">点我 showToast</l-button>
+      <l-button @click="showToast1">top</l-button>
+      <l-button @click="showToast2">middle</l-button>
+      <l-button @click="showToast3">bottom</l-button>
+    </l-button-group> -->
+
+    <!-- 组件 input 示例 -->
+    <!-- <div class="box">
+      <l-input v-model="msg"></l-input>
+      <p>{{msg}}</p>
+    </div> -->
+    
+    <!-- 组件 button 示例 -->
+    <!-- <div class="box">
+      <l-button :loading="loading1" @click="loading1 = !loading1">Button</l-button>
+      <l-button :loading="loading2" @click="loading2 = !loading2" icon="settings" icon-position="left">Button</l-button>
+      <l-button-group>
+        <l-button icon="left">Prev</l-button>
+        <l-button>More</l-button>
+        <l-button icon="right" icon-position="right">Next</l-button>
+      </l-button-group>
+    </div> -->
+  </div>
+  <script src="./src/app.js"></script>
+  <!-- <script src="//at.alicdn.com/t/font_945818_6k0fbi1c98.js"></script> -->
+</body>
+
+</html>

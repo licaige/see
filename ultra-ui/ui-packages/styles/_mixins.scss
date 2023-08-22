@@ -1,0 +1,123 @@
+@use 'vars';
+@use 'sass:list';
+@use 'sass:map';
+@use 'functions' as fn;
+
+/** flex布局 */
+@mixin flex(
+  $display: flex,
+  $justify: flex-start,
+  $align: center,
+  $wrap: nowrap
+) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  align-content: $align;
+  flex-wrap: $wrap;
+}
+
+/*
+* 表单尺寸
+* 参数为生效的form-size属性, 目前有height和padding
+*/
+@mixin form-size($props...) {
+  @each $size, $size-types in vars.$form-sizes {
+    &--#{$size} {
+      @content ($size, $size-types);
+      @each $prop, $size-val in $size-types {
+        @if list.index($props, $prop) != null {
+          #{$prop}: $size-val;
+        }
+      }
+    }
+  }
+}
+
+@mixin b($block) {
+  .#{vars.$namespace}#{$block} {
+    @content;
+  }
+}
+
+@mixin e($elements...) {
+  @each $element in $elements {
+    &__#{$element} {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifiers) {
+  @each $modifier in $modifiers {
+    &--#{$modifier} {
+      @content;
+    }
+  }
+}
+
+@mixin is($types...) {
+  @each $type in $types {
+    &.is-#{$type} {
+      @content;
+    }
+  }
+}
+
+/**
+* 设置css变量
+* 参数1:变量前缀
+* 参数2: 一个由值组成的列表或者由key, value组成的map
+* css-var(height, (
+*   large: 40px
+*   default: 32px
+*   small: 24px
+* ))
+* 生成的css变量:
+* --u-height-large: 40px;
+* --u-height-default: 32px;
+* --u-height-small: 24px;
+*/
+@mixin css-var($prefix, $list) {
+  @each $type, $value in $list {
+    @if $value == null {
+      --#{vars.$namespace}#{$prefix}: #{$type};
+    } @else {
+      --#{vars.$namespace}#{$prefix}-#{$type}: #{$value};
+    }
+  }
+}
+
+@mixin form-component {
+  border-radius: fn.use-var(radius);
+  box-shadow: inset 0 0 1px 1px fn.use-var(border, color);
+  transition: box-shadow 0.25s ease;
+  padding: 0 4px;
+
+  &:hover {
+    box-shadow: inset 0 0 1px 1px fn.use-var(color, primary);
+  }
+
+  @each $size-name, $size-types in vars.$form-sizes {
+    &--#{$size-name} {
+      height: map.get($size-types, height);
+    }
+
+    @include e(native) {
+      height: 100%;
+      font-size: fn.use-var(font-size, main);
+    }
+  }
+
+  @include e(native) {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  @include is(focus) {
+    box-shadow: inset 0 0 1px 1px fn.use-var(color, primary);
+  }
+}

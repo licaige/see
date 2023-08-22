@@ -1,0 +1,192 @@
+@use './mixins/bem.scss' as *;
+
+@include b(tabs) {
+  --bn-tabs-active-color: var(--bn-primary);
+  --bn-tabs-line-color: var(--bn-text-color);
+  --bn-tabs-ink-background-color: var(--bn-primary);
+  --bn-tabs-button-color: #646b7a;
+  --bn-tabs-button-border-color: var(--bn-border-color);
+  --bn-tabs-button-active-background-color: rgb(0 86 255 / 5%);
+  --bn-tabs-button-active-border-color: rgb(0 86 255 / 50%);
+  --bn-tabs-button-hover-border-color: rgb(0 86 255 / 50%);
+  --bn-tabs-button-group-color: #9ca6b9;
+}
+
+@include b(tabs) {
+  width: 100%;
+
+  @include e(extra-wrapper) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  @include e(navs-wrapper) {
+    display: flex;
+  }
+
+  @include e(navs-viewport) {
+    overflow: hidden;
+    flex: 1;
+    height: 100%;
+  }
+
+  @include e(icon-prev) {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &.is-disabled {
+      color: var(--bn-color-3);
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(icon-next) {
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &.is-disabled {
+      color: var(--bn-color-3);
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(navs) {
+    position: relative;
+    display: flex;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    flex-flow: row nowrap;
+
+    &.is-line {
+      box-sizing: border-box;
+      padding-bottom: 10px;
+    }
+
+    &.is-button-group {
+      .#{$namespace}-tabs__navs-item {
+        border-radius: 0;
+
+        &:last-child {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        &:first-child {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+    }
+  }
+
+  @include e(nav-ink) {
+    position: absolute;
+    background-color: var(--bn-tabs-ink-background-color);
+    transition: all 0.3s ease;
+  }
+
+  @include e(navs-item) {
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3 ease;
+    user-select: none;
+
+    &.is-line {
+      font-size: 16px;
+      color: var(--bn-tabs-line-color);
+      line-height: 1;
+
+      & + & {
+        margin-left: 40px;
+      }
+
+      &.is-active {
+        font-weight: 600;
+        color: var(--bn-tabs-active-color);
+        // transform: scale(1.2);
+      }
+    }
+
+    &.is-button {
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      padding: 0 28px;
+      height: 28px;
+      font-size: 14px;
+      color: var(--bn-tabs-button-color);
+      box-sizing: border-box;
+      line-height: 28px;
+
+      & + & {
+        margin-left: 6px;
+      }
+
+      &.is-active {
+        border-color: var(--bn-tabs-button-active-border-color);
+        font-weight: 500;
+        color: var(--bn-tabs-active-color);
+        background-color: var(--bn-tabs-button-active-background-color);
+      }
+
+      &:not(.is-active):hover {
+        border-color: var(--bn-tabs-button-hover-border-color);
+      }
+    }
+
+    &.is-button-group {
+      z-index: 0;
+      margin-left: -1px;
+      border: 1px solid var(--bn-tabs-button-border-color);
+      border-radius: 4px;
+      padding: 0 11px;
+      height: 28px;
+      font-size: 14px;
+      color: var(--bn-tabs-button-group-color);
+      box-sizing: border-box;
+      line-height: 28px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.is-active {
+        border-color: var(--bn-tabs-active-color);
+        color: #fff;
+        background-color: var(--bn-tabs-active-color);
+      }
+
+      &:not(.is-active):hover {
+        z-index: 1;
+        border-color: var(--bn-tabs-active-color);
+      }
+    }
+  }
+
+  @include e(panes-viewport) {
+    overflow: hidden;
+    padding-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @include e(panes) {
+    display: flex;
+    width: 100%;
+
+    &.is-animation {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  @include e(pane) {
+    width: 100%;
+    flex-shrink: 0;
+  }
+}

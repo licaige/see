@@ -1,0 +1,35 @@
+.pd-collapse .pd-collapse-item {
+  border-bottom: 1px solid #dcdee2;
+}
+.pd-collapse .pd-collapse-item .pd-collapse-header {
+  padding: 0 10px;
+  box-sizing: border-box;
+  height: 48px;
+  line-height: 48px;
+  cursor: pointer;
+  position: relative;
+}
+.pd-collapse .pd-collapse-item .pd-collapse-header .pd-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+.pd-collapse .pd-collapse-item .content {
+  margin: 10px;
+  font-size: 15px;
+}
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.rotate {
+  transform: rotate(90deg);
+}

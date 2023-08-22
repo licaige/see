@@ -1,0 +1,131 @@
+@use 'sass:map';
+@use '../../../style/mixins.scss' as *;
+@use '../../../style/var.scss' as *;
+
+$tag-padding-vertical-map: (
+  mini: 0px,
+  small: 2px,
+  medium: 4px,
+  large: 6px
+);
+
+$tag-padding-horizontal-map: (
+  mini: 4px,
+  small: 6px,
+  medium: 8px,
+  large: 10px
+);
+
+@include b(tag) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  border-radius: $tu-border-radius;
+  color: $tu-color-text;
+  line-height: 1;
+  vertical-align: middle;
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  @include e(icon) {
+    margin-right: 4px;
+  }
+
+  @include e(close) {
+    cursor: pointer;
+    color: $tu-color-text-placeholder;
+    transition: color $tu-transition-duration-2;
+    margin-left: 2px;
+
+    &:hover {
+      color: $tu-color-text;
+    }
+  }
+
+  @include m(dark) {
+    color: $tu-color-white;
+    border: 1px solid transparent;
+    background-color: $tu-color-text;
+  }
+
+  @include m(plain) {
+    color: $tu-color-text;
+    border: 1px solid $tu-color-text;
+  }
+
+  @include m(light) {
+    color: $tu-color-text;
+    border: 1px solid $tu-color-text;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: soft-light;
+      background-color: var(--color);
+    }
+  }
+
+  @include m(neumorphic) {
+    border: 1px solid transparent;
+    box-shadow: $tu-shadow-outside;
+    transition: box-shadow $tu-transition-duration-2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      top: -1px;
+      left: -1px;
+      border: 1px solid transparent;
+      border-radius: $tu-border-radius;
+      transition: border $tu-transition-duration-2;
+      z-index: -1;
+    }
+
+    &:hover:not(.is_disabled) {
+      box-shadow: none;
+
+      &::after {
+        border-color: $tu-color-shadow-light;
+      }
+    }
+  }
+
+  @include when(hit) {
+    font-weight: $tu-font-title-weight;
+  }
+
+  @include when(round) {
+    border-radius: $tu-border-radius-full;
+
+    &::after {
+      border-radius: $tu-border-radius-full;
+    }
+  }
+
+  @each $size in (mini, small, medium, large) {
+    @include m($size) {
+      font-size: map-get($font-size-map, $size);
+      padding: map-get($tag-padding-vertical-map, $size)
+        map-get($tag-padding-horizontal-map, $size);
+
+      @include e(icon) {
+        font-size: map-get($font-size-map, $size);
+      }
+
+      @include e(close) {
+        font-size: map-get($font-size-map, $size);
+      }
+    }
+  }
+}

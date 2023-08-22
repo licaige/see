@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+dist
+coverage
+package-lock.json
+bin
+*.local
+
+pnpm-lock.yaml
+
+.publish.env

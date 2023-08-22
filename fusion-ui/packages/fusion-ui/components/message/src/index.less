@@ -1,0 +1,80 @@
+@import "../../../styles/base.less";
+[data-theme="light"] .fn-message,
+.fn-message[data-theme="light"],
+.fn-message  {
+  --fn-message-bg-color: var(--fn-slate-100);
+  --fn-message-text-color:var(--fn-black-100);
+  font-size: 14px;
+}
+
+
+[data-theme="dark"] .fn-message,
+.fn-message[data-theme="dark"] {
+  --fn-message-bg-color:var(--fn-slate-800);
+  --fn-message-text-color: var(--fn-slate-100);
+}
+
+.fn-message{
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  transform: translate(-50%);
+  max-width: 50%;
+  z-index: 99;
+  font-size: 13px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  --un-bg-opacity: 1;
+  background-color: rgba(255,255,255,var(--un-bg-opacity));
+  color: var(--fn-message-text-color);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .3s;
+  border: 1px solid var(--fn-message-border-color);
+  padding: 3px 10px 3px 15px;
+
+  > .message-content{
+    display: flex;
+    > i{
+      margin: auto;
+      margin-right: 10px;
+    }
+  }
+}
+.is-success,.is-info,.is-warning,.is-danger,.is-error{
+  background-color: var(--fn-message-bg-color)
+}
+.is-success{
+  color: var(--fn-success);
+  --fn-message-border-color:var(--fn-bright-50);
+}
+.is-info{
+  color: var(--fn-message-text-color);
+  --fn-message-border-color: var(--fn-stone-1000);
+
+}
+.is-warning{
+  color: var(--fn-warning);
+  --fn-message-border-color: var(--fn-warning);
+
+}
+.is-danger{
+  color: var(--fn-rose-500);
+  --fn-message-border-color: var(--fn-rose-500);
+}
+
+.close-btn{
+  margin-left: 5px;
+  &:hover{
+    cursor: pointer;
+    color: var(--fn-message-text-color)
+  }
+}
+
+.fn-message-fade-enter-from,
+.fn-message-fade-leave-to {
+  transform: translate(-50%, -100%);
+  opacity:0;
+}

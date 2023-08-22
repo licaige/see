@@ -1,0 +1,22 @@
+{
+  "name": "@ui/components",
+  "type": "module",
+  "version": "1.0.0",
+  "module": "./index.ts",
+  "main": "./index.ts",
+  "dependencies": {
+    "@ui/utils": "workspace:*",
+    "@ui/compositions": "workspace:*",
+    "@ui/shared": "workspace:*",
+    "@ui/styles": "workspace:*",
+    "@ui/directives": "workspace:*"
+  },
+  "devDependencies": {
+    "icon-ultra": "^2.0.16",
+    "gsap": "^3.12.2"
+  },
+  "exports": {
+    ".": "./index.ts",
+    "./*": "./*"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": ["scss", "css"],
+  
+  "cSpell.words": [
+    "Arrayable",
+    "Cascader",
+    "consola",
+    "daterange",
+    "fullscreen",
+    "monthrange",
+    "npmjs",
+    "popconfirm",
+    "rgba",
+    "vitepress",
+    "vnode"
+  ]
+}

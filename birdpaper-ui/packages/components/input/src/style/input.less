@@ -1,0 +1,172 @@
+@import "./token.less";
+
+@input-cls: ~"@{prefix}-input";
+
+.@{input-cls} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  outline: none;
+  white-space: nowrap;
+  min-height: @miniHeight;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  opacity: 1;
+  width: auto;
+  min-width: 80px;
+  border-radius: 4px;
+  cursor: text;
+}
+
+.input-size(@size) {
+  .@{input-cls}-size-@{size} {
+    height: ~"@{input-size-@{size}-height}";
+    border-radius: ~"@{input-size-@{size}-radius}";
+
+    .suffix {
+      height: calc(~"@{input-size-@{size}-height}" - 2px);
+      border-radius: ~"@{input-size-@{size}-radius}";
+    }
+
+    .@{input-cls}-inner {
+      width: 100%;
+      height: 100%;
+      flex: 1 1 auto;
+      border-radius: ~"@{input-size-@{size}-radius}";
+      padding: ~"@{input-size-@{size}-padding}";
+      font-size: ~"@{input-size-@{size}-font-size}";
+      .input-font-family;
+    }
+  }
+}
+
+.input-status(@status) {
+  .@{input-cls}-status-@{status} {
+    color: ~"@{input-status-@{status}-color}";
+    background-color: ~"@{input-status-@{status}-background}";
+    border: 1px solid ~"@{input-status-@{status}-border-color}";
+    transition: all 0.2s ease;
+
+    .bp-input-placeholder {
+      color: ~"@{input-status-@{status}-placeholder-color}";
+      font-weight: normal;
+    }
+
+    &:hover {
+      background-color: ~"@{input-status-@{status}-background-hover}";
+      border: 1px solid ~"@{input-status-@{status}-border-color-hover}";
+      transition: all 0.2s ease;
+
+      .suffix {
+        .ri-close-line {
+          opacity: 1;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+
+    &:focus-within {
+      background-color: ~"@{input-status-@{status}-background-focus}";
+      border: 1px solid ~"@{input-status-@{status}-border-color-focus}";
+      transition: all 0.2s ease;
+
+      .suffix {
+        transition: all 0.2s ease;
+      }
+    }
+
+    input::placeholder {
+      .bp-input-placeholder;
+    }
+
+    input::-webkit-input-placeholder {
+      .bp-input-placeholder;
+    }
+
+    /* Firefox 4-18 */
+    input::-moz-placeholder {
+      .bp-input-placeholder;
+    }
+
+    /* Firefox 19-50 */
+    input::-moz-placeholder {
+      .bp-input-placeholder;
+    }
+
+    /* - Internet Explorer 10–11
+      - Internet Explorer Mobile 10-11 */
+    input::-ms-input-placeholder {
+      .bp-input-placeholder;
+    }
+
+    /* Edge (also supports -webkit-input-placeholder) */
+    input::-ms-input-placeholder {
+      .bp-input-placeholder;
+    }
+  }
+}
+
+.input-size(mini);
+.input-size(small);
+.input-size(normal);
+.input-size(large);
+
+.input-status(normal);
+.input-status(readonly);
+.input-status(disabled);
+.input-status(danger);
+
+.@{input-cls}-status-disabled {
+  cursor: not-allowed;
+
+  .@{input-cls}-inner {
+    cursor: not-allowed;
+  }
+}
+
+// 后缀元素
+.suffix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100px;
+  flex: 0 0 auto;
+  margin-left: 2px;
+  min-width: 16px;
+  .no-select();
+
+  i {
+    font-size: 14px;
+  }
+
+  .ri-close-line {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .click-icon {
+    color: @gary-7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &::before {
+      padding: 1px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      color: @gary-8;
+
+      &::before {
+        background-color: @gary-4;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  span {
+    font-size: 12px;
+    color: @gary-7;
+  }
+}

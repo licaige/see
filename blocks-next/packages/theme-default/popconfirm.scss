@@ -1,0 +1,57 @@
+@use './mixins/bem.scss' as *;
+
+@include b(popconfirm) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 28px 22px;
+  background-color: #fff;
+  box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
+  box-sizing: border-box;
+  flex-direction: column;
+
+  --bn-popconfirm-icon-color: var(--bn-danger);
+
+  @include e(content) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    line-height: 1;
+  }
+
+  @include e(title) {
+    flex-grow: 1;
+    margin-left: 8px;
+    font-size: var(--bn-font-size);
+    color: var(--bn-color-1);
+  }
+
+  @include e(footer) {
+    margin-top: 28px;
+  }
+
+  @include e(icon) {
+    color: var(--bn-popconfirm-icon-color);
+  }
+
+  @include when(warning) {
+    --bn-popconfirm-icon-color: var(--bn-warning);
+  }
+
+  @include when(success) {
+    --bn-popconfirm-icon-color: var(--bn-success);
+  }
+
+  @include when(primary) {
+    --bn-popconfirm-icon-color: var(--bn-primary);
+  }
+
+  @include when(strong) {
+    --bn-popconfirm-icon-color: var(--bn-strong);
+  }
+
+  @include when(danger) {
+    --bn-popconfirm-icon-color: var(--bn-danger);
+  }
+}

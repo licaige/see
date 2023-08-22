@@ -1,0 +1,110 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixin.less';
+
+
+@alert-prefix-cls: ~'@{cls-prefix}-alert';
+
+.@{alert-prefix-cls} {
+    --f-alert-color: var(--f-primary-color);
+    --f-alert-bg-color: var(--f-hover-color-light);
+    --f-alert-border-base: var(--f-border-base);
+    --f-alert-border-color: var(--f-primary-color);
+    --f-alert-border-radius: var(--f-border-radius-base);
+
+    .default();
+    .text();
+    padding: @padding-xs @padding-md;
+    color: var(--f-alert-color);
+    line-height: 24px;
+    background-color: var(--f-alert-bg-color);
+    border: var(--f-alert-border-base);
+    border-color: var(--f-alert-border-color);
+    border-radius: var(--f-alert-border-radius);
+
+    &-success {
+        --f-alert-color: var(--f-success-color);
+        --f-alert-bg-color: var(--f-hover-success-color);
+        --f-alert-border-color: var(--f-success-color);
+    }
+
+    &-warning {
+        --f-alert-color: var(--f-warning-color);
+        --f-alert-bg-color: var(--f-hover-warning-color);
+        --f-alert-border-color: var(--f-warning-color);
+    }
+
+    &-error {
+        --f-alert-color: var(--f-danger-color);
+        --f-alert-bg-color: var(--f-hover-danger-color);
+        --f-alert-border-color: var(--f-danger-color);
+    }
+
+    &-close-padding {
+        padding-right: calc(@padding-xs + 14px);
+    }
+
+    &-icon-padding {
+        padding-left: calc(@padding-xs + 14px);
+    }
+
+
+    &-message-center {
+        text-align: center;
+        .@{alert-prefix-cls}-head-message {
+            justify-content: center;
+        }
+    }
+
+    &-head {
+        position: relative;
+        display: flex;
+        align-items: center;
+        &-message {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            
+            &-icon {
+                display: flex;
+                align-items: center;
+                padding-right: @padding-xs;
+            }
+        }
+
+        &-right {
+            display: flex;
+            
+            &-close {
+                display: flex;
+                align-items: center;
+                padding-left: @padding-xs;
+                color: var(--f-text-color-caption);
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+    &-body {
+        margin-top: 4px;
+        opacity: 0.45;
+
+        &-padding-left {
+            padding-left: calc(@padding-xs + 14px);
+        }
+
+        &-padding-right {
+            padding-left: calc(@padding-xs + 14px);
+        }
+    }
+      
+    &-fade-expand-leave-active {
+        transition: all @animation-duration-slow @ease-out;
+    }
+
+    &-fade-expand-leave-to {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}

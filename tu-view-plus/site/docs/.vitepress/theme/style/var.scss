@@ -1,0 +1,29 @@
+@import './component.scss';
+
+:root:not(.dark) {
+  --vp-button-brand-border: #5e7ce0;
+  --vp-c-brand: #5e7ce0;
+  --vp-sidebar-bg-color: #dfe1e6;
+  --vp-c-bg: #dfe1e6;
+  --vp-input-switch-bg-color: #dfe1e6;
+  --vp-c-text-1: #575d6c;
+  --vp-code-block-bg: #ededed;
+  --vp-code-copy-code-hover-bg: #ffffff;
+  --vp-code-copy-code-bg: #f8f8f8;
+  --vp-code-copy-code-active-text: var(--vp-c-text-1);
+}
+:root.dark {
+  --vp-c-bg: #282c34;
+  --vp-sidebar-bg-color: #282c34;
+  --vp-c-text-1: #888b92;
+  --tu-color-global-bg: #282c34;
+  --tu-color-shadow-light: #5a5a5a;
+  --tu-color-shadow-dark: #0c0d0f;
+  --tu-color-text: #bdbdbd;
+  --tu-color-primary-light: #caabff;
+  --tu-color-primary: #a97af8;
+  --tu-color-primary-dark: #6f42c9;
+}
+:root {
+  --vp-doc-demo-bg: #363651;
+}

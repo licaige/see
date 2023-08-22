@@ -1,0 +1,18 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+
+.wot-theme-dark {
+  @include b(modal) {
+    background: $-modal-bg-dark;
+  }
+}
+
+
+@include bdeep(modal) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: $-modal-bg;
+}

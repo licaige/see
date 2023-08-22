@@ -1,0 +1,128 @@
+.pd-input {
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+}
+.pd-input .pd-input__inner {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 15px;
+  width: 100%;
+}
+.pd-input .pd-input__inner::placeholder {
+  color: #c2c2ca;
+}
+.pd-input .pd-input__inner:hover {
+  border: 1px solid #c0c4cc;
+}
+.pd-input .pd-input__inner:focus {
+  border: 1px solid #409eff;
+}
+.pd-input.is-disabled .pd-input__inner {
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+.pd-input.is-disabled .pd-input__inner::placeholder {
+  color: #c3c4cc;
+}
+.pd-input.pd-input--medium .pd-input__inner {
+  height: 36px;
+}
+.pd-input.pd-input--medium .pd-input__inner::placeholder {
+  font-size: 15px;
+}
+.pd-input.pd-input--small .pd-input__inner {
+  height: 32px;
+}
+.pd-input.pd-input--small .pd-input__inner::placeholder {
+  font-size: 14px;
+}
+.pd-input.pd-input--mini .pd-input__inner {
+  height: 28px;
+}
+.pd-input.pd-input--mini .pd-input__inner::placeholder {
+  font-size: 13px;
+}
+.pd-input__suffix {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #c0c4cc;
+}
+/* 原生隐藏密码框的显示与隐藏图标 */
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-icon {
+  display: none;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+.pd-input__suffix,
+.pd-input__prefix {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #c0c4cc;
+  font-size: 15px;
+}
+.no-cursor {
+  cursor: default;
+}
+.pd-input--prefix.pd-input__inner {
+  padding-left: 30px;
+}
+.pd-input__prefix {
+  position: absolute;
+  width: 20px;
+  cursor: default;
+  left: 10px;
+}
+.pd-textarea {
+  width: 100%;
+}
+.pd-textarea .pd-textarea__inner {
+  display: block;
+  padding: 5px 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: inherit;
+  color: #606266;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+}
+.pd-textarea .pd-textarea__inner::placeholder {
+  color: #c2c2ca;
+}
+.pd-textarea .pd-textarea__inner:hover {
+  border: 1px solid #c0c4cc;
+}
+.pd-textarea .pd-textarea__inner:focus {
+  outline: none;
+  border: 1px solid #409eff;
+}
+.textarea-resize {
+  resize: none;
+}

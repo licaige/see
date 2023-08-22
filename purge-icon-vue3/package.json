@@ -1,0 +1,51 @@
+{
+  "name": "purge-icon-vue3",
+  "version": "0.0.2",
+  "author": "chengyu",
+  "license": "MIT",
+  "main": "./dist/purge-icon-vue3.umd.js",
+  "module": "./dist/purge-icon-vue3.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/purge-icon-vue3.es.js",
+      "require": "./dist/purge-icon-vue3.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "scripts": {
+    "dev": "vite",
+    "build-watch": "vite build --watch",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "build-types": "node types-excutor.mjs"
+  },
+  "dependencies": {
+    "@iconify/iconify": "^2.2.1",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@cxing/vitejs-plugin-inject-css": "^0.0.2",
+    "@iconify/json": "^2.1.32",
+    "@purge-icons/generated": "^0.8.1",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "@vitejs/plugin-vue": "^2.3.0",
+    "eslint": "^8.12.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "fs-extra": "^10.0.1",
+    "hash-generator": "^0.1.0",
+    "sass": "^1.49.10",
+    "sass-loader": "^12.6.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.0",
+    "vite-plugin-dts": "^1.1.1",
+    "vite-plugin-purge-icons": "^0.8.1",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^0.29.8"
+  }
+}

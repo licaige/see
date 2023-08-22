@@ -1,0 +1,37 @@
+
+.fade-in-width-expand-motion() {
+    @name: ~'@{cls-prefix}-fade-in-width-expand';
+    .@{name}-enter-to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    .@{name}-enter-from {
+        max-width: 0 !important;
+        transform: translateY(60%);
+        opacity: 0;
+    }
+    .@{name}-leave-to {
+        max-width: 0 !important;
+        transform: translateY(60%);
+        opacity: 0;
+    }
+    .@{name}-leave-from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .@{name}-enter-active {
+        overflow: hidden;
+        transition: 
+            max-width @animation-duration-base @ease-base-out,
+            opacity @animation-duration-base @ease-base-out,
+            transform @animation-duration-base @ease-base-out,
+    }
+    .@{name}-leave-active {
+        overflow: hidden;
+        transition: 
+            max-width @animation-duration-base @ease-base-in,
+            opacity @animation-duration-base @ease-base-in,
+            transform @animation-duration-base @ease-base-in,
+    }
+}
+.fade-in-width-expand-motion();

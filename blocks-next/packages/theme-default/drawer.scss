@@ -1,0 +1,117 @@
+@use './mixins/bem.scss' as *;
+
+@include b(drawer) {
+  --bn-mask-background-color: rgb(29 33 41 / 60%);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include e(mask) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bn-mask-background-color);
+  }
+
+  @include e(container) {
+    position: absolute;
+    overflow: auto;
+    background-color: #fff;
+    box-shadow: -10px 0 40px 0 rgb(100 107 122 / 15%);
+
+    &.is-template {
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    &.is-right {
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.is-left {
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.is-top {
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    &.is-bottom {
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @include e(close-icon) {
+    position: absolute;
+    top: 26px;
+    right: 28px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 1px;
+      height: 100%;
+      background-color: #9ca6b9;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 1px;
+      height: 100%;
+      background-color: #9ca6b9;
+    }
+  }
+
+  @include e(header) {
+    border-bottom: 1px solid #edf1f6;
+    padding-left: 28px;
+    height: 68px;
+    box-sizing: border-box;
+    line-height: 68px;
+  }
+
+  @include e(title) {
+    font-size: 18px;
+    font-weight: 600;
+    color: #242934;
+    line-height: 1;
+  }
+
+  @include e(footer) {
+    margin-top: auto;
+    padding: 20px 28px;
+    background: #fff;
+    box-shadow: 0 0 40px 0 rgb(100 107 122 / 15%);
+    box-sizing: border-box;
+
+    &.is-left,
+    &.is-top,
+    &.is-bottom {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

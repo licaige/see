@@ -1,0 +1,29 @@
+{
+  "name": "@tu-view-plus/components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.29.2",
+    "jsdom": "^22.1.0"
+  },
+  "dependencies": {
+    "@tu-view-plus/components": "workspace:^1.0.0",
+    "@tu-view-plus/constants": "workspace:^1.0.0",
+    "@tu-view-plus/directives": "workspace:^1.0.0",
+    "@tu-view-plus/hooks": "workspace:^1.0.0",
+    "@tu-view-plus/icons-vue": "^1.0.1",
+    "@tu-view-plus/locale": "workspace:^1.0.0",
+    "@tu-view-plus/test-utils": "workspace:^1.0.0",
+    "@tu-view-plus/utils": "workspace:^1.0.0"
+  }
+}

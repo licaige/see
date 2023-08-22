@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const a=require("@tu-view-plus/utils"),r=require("./src/textarea.vue.js"),e=require("./src/textarea.js"),t=a.withInstall(r.default);exports.textareaEmits=e.textareaEmits;exports.textareaProps=e.textareaProps;exports.TuTextarea=t;exports.default=t;

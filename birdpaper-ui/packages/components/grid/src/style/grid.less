@@ -1,0 +1,70 @@
+.bp-row {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/** 水平对齐方式 */
+.bp-justify-center {
+  justify-content: center;
+}
+.bp-justify-start {
+  justify-content: flex-start;
+}
+.bp-justify-end {
+  justify-content: flex-end;
+}
+.bp-justify-between {
+  justify-content: space-between;
+}
+.bp-justify-around {
+  justify-content: space-around;
+}
+.bp-justify-evenly {
+  justify-content: space-evenly;
+}
+
+/** 垂直对齐方式 */
+.bp-align-start {
+  align-items: flex-start;
+}
+.bp-align-center {
+  align-items: center;
+}
+.bp-align-end {
+  align-items: flex-end;
+}
+.bp-align-baseline {
+  align-items: baseline;
+}
+.bp-align-stretch {
+  align-items: stretch;
+}
+
+.bp-col {
+  box-sizing: border-box;
+
+  // 栏位
+  .span(@span) when (@span > 0) {
+    .span((@span - 1));
+
+    &-@{span} {
+      width: (100% / 24) * @span;
+      flex: 0 0 (100% / 24) * @span;
+    }
+  }
+
+  .span(24);
+
+  // 偏移
+  .offset(@offset) when (@offset > 0) {
+    .offset((@offset - 1));
+
+    &-offset-@{offset} {
+      margin-left: (100% / 24) * @offset;
+    }
+  }
+
+  .offset(23);
+}

@@ -1,0 +1,72 @@
+@use 'sass:map';
+
+$breakpoint-max: 1680px !default;
+$breakpoint-xxl: 1440px !default;
+$breakpoint-xlg: 1280px !default;
+$breakpoint-lg: 960px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-sm: 480px !default;
+
+$scrollbar-size: 6px;
+
+$breakpoints: (
+  'sm': #{$breakpoint-sm},
+  'md': #{$breakpoint-md},
+  'lg': #{$breakpoint-lg},
+  'xlg': #{$breakpoint-xlg},
+  'xxl': #{$breakpoint-xxl},
+  'max': #{$breakpoint-max}
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if #{map.has-key($breakpoints, $breakpoints)} {
+    @media screen and (min-width: #{map.get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+// Scrollbar
+@mixin scroll-bar {
+  $scrollbar-thumb-background: var(--vp-c-divider);
+  $scrollbar-thumb-hover-background: var(--vp-c-text-3);
+  $scrollbar-track-background: transparent;
+
+  &::-webkit-scrollbar {
+    z-index: 111;
+    width: 6px;
+
+    &:horizontal {
+      height: 6px;
+    }
+
+    &-thumb {
+      cursor: default;
+      border-radius: 5px;
+      width: 6px;
+      background: $scrollbar-thumb-background;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: $scrollbar-thumb-hover-background;
+      }
+    }
+
+    &-corner {
+      background: $scrollbar-track-background;
+    }
+
+    &-track {
+      background: $scrollbar-track-background;
+
+      &-piece {
+        background: $scrollbar-track-background;
+        width: 6px;
+      }
+    }
+  }
+
+  // firefox
+  scrollbar-width: thin; // 默认值
+  scrollbar-color: $scrollbar-thumb-background transparent;
+}

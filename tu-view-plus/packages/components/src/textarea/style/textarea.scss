@@ -1,0 +1,136 @@
+@use 'sass:map';
+@use '../../../style/mixins.scss' as *;
+@use '../../../style/var.scss' as *;
+
+$textarea-padding-horizontal-map: (
+  mini: 6px,
+  small: 8px,
+  medium: 12px,
+  large: 16px
+);
+
+$textarea-count-bottom-map: (
+  mini: 3px,
+  small: 5px,
+  medium: 9px,
+  large: 11px
+);
+
+@include b(textarea) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+  font-size: $tu-font-size;
+
+  &:hover:not(.is-disabled) {
+    @include e(inner) {
+      box-shadow: none;
+      border-color: $tu-color-shadow-light;
+    }
+  }
+
+  @include e(inner) {
+    position: relative;
+    display: block;
+    resize: vertical;
+    padding: 0 map-get($textarea-padding-horizontal-map, 'medium');
+    height: calc(map-get($size-map, 'medium') - 2px);
+    line-height: calc(map-get($size-map, 'medium') - 2px);
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    color: $tu-color-text;
+    background: transparent;
+    background-image: none;
+    border-radius: $tu-border-radius;
+    transition: box-shadow $tu-transition-duration-3 ease;
+    border: 1px solid transparent;
+    box-shadow: $tu-shadow-inside;
+    -webkit-appearance: none;
+
+    @include scroll-bar;
+
+    @include when(focus) {
+      box-shadow: none;
+      border-color: $tu-color-shadow-light;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $tu-color-text-placeholder;
+    }
+
+    &::-moz-placeholder {
+      color: $tu-color-text-placeholder;
+    }
+
+    &::-ms-input-placeholder {
+      color: $tu-color-text-placeholder;
+    }
+  }
+
+  @include e(suffix) {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+    float: right;
+    font-size: 12px;
+    bottom: 9px;
+    right: 12px;
+    color: $tu-color-text-placeholder;
+
+    @include e(count) {
+      position: relative;
+      top: 0;
+      margin-left: 8px;
+      line-height: 1;
+    }
+
+    @include e(icon) {
+      position: relative;
+      top: 0;
+      cursor: pointer;
+      transition: color $tu-transition-duration-3;
+
+      &:hover {
+        color: $tu-color-text;
+      }
+    }
+  }
+
+  @include when(disabled) {
+    cursor: not-allowed;
+
+    @include e(inner) {
+      box-shadow: none;
+      opacity: 0.7;
+      background-color: $tu-color-base-bg;
+      cursor: not-allowed;
+    }
+  }
+
+  @each $size in (mini, small, medium, large) {
+    @include m($size) {
+      @include e(inner) {
+        font-size: map-get($font-size-map, $size);
+        height: calc(map-get($size-map, $size) - 2px);
+        line-height: calc(map-get($size-map, $size) - 2px);
+      }
+      @include e(suffix) {
+        bottom: map-get($textarea-count-bottom-map, $size);
+      }
+      @include e(icon) {
+        &::before {
+          width: map-get($icon-hover-bg-size-map, $size);
+          height: map-get($icon-hover-bg-size-map, $size);
+        }
+      }
+    }
+  }
+}

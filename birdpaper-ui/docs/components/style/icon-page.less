@@ -1,0 +1,44 @@
+@import "../../../packages/style/common/theme.module.less";
+
+.icon-page {
+  width: 100%;
+
+  &-inner {
+    display: block;
+    width: 100%;
+
+    .icon-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 25%;
+      height: 120px;
+      box-sizing: border-box;
+      background-color: @gary-1;
+      border: 2px solid @gary-1;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      i {
+        font-size: 20px;
+        color: @gary-8;
+      }
+      span {
+        font-size: 12px;
+      }
+
+      &:hover {
+        background-color: @gary-2;
+        border: 1px solid @gary-5;
+        transition: all 0.2s ease;
+        i {
+          font-size: 20px;
+          color: @gary-11;
+        }
+      }
+    }
+  }
+}

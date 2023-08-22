@@ -1,0 +1,137 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixin.less';
+
+@radio-button-prefix-cls: ~'@{cls-prefix}-radio-button';
+
+@radio-button-height-sm: @data-input-height-base - 8;
+@radio-button-height-base: @data-input-height-base;
+
+@radio-button-font-sm: @font-size-caption;
+@radio-button-font-base: @font-size-body;
+
+@radio-button-content-height-sm: 20px;
+@radio-button-content-height-base: 28px;
+
+.@{radio-button-prefix-cls} {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: -1px;
+    text-align: center;
+    background: var(--f-white);
+    cursor: pointer;
+
+    :hover {
+        color: var(--f-primary-color);
+    }
+
+    &-content-small {
+        margin: 1px;
+        padding: 0 var(--f-padding-small);
+        line-height: @radio-button-content-height-sm;
+    }
+
+    &-content-middle {
+        margin: 1px;
+        padding: 0 var(--f-padding-middle);
+        line-height: @radio-button-content-height-base;
+    }
+
+    &-content-checked {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1px;
+        border-radius: 4px;
+
+        &-small {
+            height: @radio-button-content-height-sm;
+        }
+
+        &-middle {
+            height: @radio-button-content-height-base;
+        }
+
+        &-default {
+            color: var(--f-black);
+            background: var(--f-white);
+            transition: all @animation-duration-base @ease-base-in;
+
+            &:hover {
+                color: var(--f-black);
+            }
+        }
+
+        &-primary {
+            color: var(--f-white);
+            background: var(--f-primary-color);
+            transition: all @animation-duration-base @ease-base-in;
+
+            &:hover {
+                color: var(--f-white);
+            }
+        }
+    }
+
+    // 按钮容器大小
+    &-middle {
+        height: @radio-button-height-base;
+        font-size: @radio-button-font-base;
+    }
+
+    &-small {
+        height: @radio-button-height-sm;
+        font-size: @radio-button-font-sm;
+    }
+
+    // 边框样式
+    &-border {
+        border: var(--f-border-width-base) var(--f-border-style-base) var(--f-border-color-base);
+    }
+    // 无边框样式
+    &-no-border {
+        color: var(--f-sub-head-color);
+        background: var(--f-border-color-split);
+        border: var(--f-border-width-base) var(--f-border-style-base) var(--f-border-color-split);
+    }
+
+    // 有边框的选中样式
+    &.is-checked-primary-border {
+        z-index: 1;
+        color: var(--f-white);
+        background: var(--f-primary-color);
+        border-color: var(--f-primary-color);
+        transition: all @animation-duration-base @ease-base-in;
+
+        :hover {
+            color: var(--f-white);
+        }
+    }
+
+    &.is-checked-default-border {
+        z-index: 1;
+        color: var(--f-primary-color);
+        background: var(--f-white);
+        border-color: var(--f-primary-color);
+        transition: all @animation-duration-base @ease-base-in;
+    }
+
+    &.is-disabled {
+        color: var(--f-border-color-base);
+        cursor: not-allowed;
+
+        :hover {
+            color: var(--f-border-color-base);
+        }
+    }
+    // 禁用，并且有边框的样式
+    &.is-disabled.fes-radio-button-border {
+        border: var(--f-border-width-base) var(--f-border-style-base) var(--f-border-color-base);
+    }
+
+    // 按钮平分空间
+    &.is-flex {
+        flex: 1;
+    }
+}

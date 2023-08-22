@@ -1,0 +1,152 @@
+@use './mixins/bem.scss' as *;
+
+@include b(cascader) {
+  display: inline-block;
+  width: 260px;
+}
+
+@include b(cascader-panel) {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
+
+  @include e(content) {
+    display: flex;
+  }
+
+  @include e(column) {
+    position: relative;
+    width: 180px;
+    height: 220px;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--bn-background-color);
+    }
+  }
+
+  @include e(list) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px 0;
+  }
+
+  @include e(option) {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-size: var(--bn-font-size);
+    color: var(--bn-color-1);
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+
+    > .bn-checkbox {
+      margin-right: 8px;
+    }
+
+    &:hover:not(.is-disabled) {
+      background-color: var(--bn-background-color);
+    }
+
+    &.is-active {
+      background-color: var(--bn-background-color);
+    }
+
+    &.is-disabled {
+      color: var(--bn-disabled-color);
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(option-label) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  @include e(footer) {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--bn-border-color);
+    padding: 12px 24px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  @include e(empty) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include b(cascader-query-panel) {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  min-width: 180px;
+  background-color: #fff;
+  box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
+
+  @include e(list) {
+    padding: 8px 0;
+  }
+
+
+  @include e(tag) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 14px;
+
+    > span {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: var(--bn-background-color);
+      cursor: pointer;
+    }
+
+    &.is-selected {
+      font-weight: 700;
+      color: var(--bn-primary);
+
+    }
+  }
+
+  @include e(empty) {
+    padding: 8px 0;
+  }
+}
+
+
+
+.cascader-slide-enter-active,
+.cascader-slide-leave-active {
+  transition: margin 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+}
+
+.cascader-slide-enter-from,
+.cascader-slide-leave-to {
+  margin-left: -180px;
+}
+
+.cascader-slide-enter-to,
+.cascader-slide-leave-from {
+  // transform: translate(0, 0);
+  margin-left: 0;
+}

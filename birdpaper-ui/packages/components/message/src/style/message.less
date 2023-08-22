@@ -1,0 +1,124 @@
+@message-cls: ~"@{prefix}-message";
+
+.bp-mask-message {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.@{message-cls}-list {
+  position: relative;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  .@{message-cls} {
+    min-width: 80px;
+    width: max-content;
+    height: 46px;
+    border-radius: 6px;
+    background: @gary-1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0 14px;
+    border: 1px solid @gary-4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    line-height: 1;
+    text-align: center;
+    list-style: none;
+    overflow: hidden;
+    .no-select;
+
+    &-icon {
+      font-size: 18px;
+      margin-right: 6px;
+
+      .ri-checkbox-circle-fill {
+        color: @success-6;
+      }
+
+      .ri-close-circle-fill {
+        color: @danger-6;
+      }
+
+      .ri-error-warning-fill {
+        color: @warning-6;
+      }
+
+      .ri-loader-4-line {
+        display: inline-block;
+        color: @primary-6;
+        animation: rotating 0.8s linear infinite;
+        -webkit-animation: rotating 0.8s linear infinite;
+      }
+    }
+
+    &-content {
+      font-size: 14px;
+      font-weight: normal;
+      letter-spacing: .2px;
+      color: @gary-10;
+    }
+
+    &-close {
+      margin-left: 6px;
+
+      .ri-close-line {
+        color: @gary-7;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &::before {
+          padding: 2px;
+          border-radius: 10px;
+          transition: all 0.2s ease;
+        }
+
+        &:hover {
+          color: @gary-8;
+
+          &::before {
+            background-color: @gary-4;
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(365deg);
+  }
+}
+
+.fademsg-move,
+.fademsg-enter-active,
+.fademsg-leave-active {
+  transition: all 0.2s cubic-bezier(0, 0, 1, 1);
+}
+.fademsg-enter-from,
+.fademsg-leave-to {
+  opacity: 0;
+}
+.fademsg-leave-active {
+  position: absolute;
+}

@@ -1,0 +1,60 @@
+@use '../../../style/mixins.scss' as *;
+@use '../../../style/var.scss' as *;
+@use '../../../style/utils.scss' as *;
+
+$button-group-padding-vertical-map: (
+  mini: 3px,
+  small: 3px,
+  medium: 6px,
+  large: 8px
+);
+$button-group-padding-horizontal-map: (
+  mini: 7px,
+  small: 11px,
+  medium: 17px,
+  large: 21px
+);
+
+@include b(button-group) {
+  @include utils-clearfix;
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 4px;
+  box-shadow: $tu-shadow-inside-outside-small;
+  border-radius: $tu-border-radius-feedback;
+  box-sizing: border-box;
+
+  & + & {
+    margin-left: 12px;
+  }
+
+  & > .#{$namespace}-button {
+    float: left;
+    position: relative;
+
+    & + .#{$namespace}-button {
+      margin-left: 3px;
+    }
+  }
+
+  @each $size in (mini, small, medium, large) {
+    @if $size == mini {
+      padding: 3px;
+    }
+    & > .#{$namespace}-button {
+      @include m($size) {
+        padding: map-get($button-group-padding-vertical-map, $size)
+          map-get($button-group-padding-horizontal-map, $size);
+      }
+
+      &.#{$namespace}-button--primary,
+      &.#{$namespace}-button--success,
+      &.#{$namespace}-button--info,
+      &.#{$namespace}-button--danger,
+      &.#{$namespace}-button--warning {
+        padding: calc(map-get($button-group-padding-vertical-map, $size) - 2px)
+          calc(map-get($button-group-padding-horizontal-map, $size) - 2px);
+      }
+    }
+  }
+}

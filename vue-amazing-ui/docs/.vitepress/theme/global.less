@@ -1,0 +1,254 @@
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+  --c-brand: #646cff;
+  --c-brand-light: #747bff;
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #bd34fe 30%,
+    #41d1ff
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #bd34fe 50%,
+    #47caff 50%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+.dark {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand) !important;
+}
+
+/**
+ * VitePress: Custom fix
+ * -------------------------------------------------------------------------- */
+
+/*
+  Use lighter colors for links in dark mode for a11y.
+  Also specify some classes twice to have higher specificity
+  over scoped class data attribute.
+*/
+.dark .vp-doc a,
+.dark .vp-doc a > code,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink:hover,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink.active,
+.dark .link.link:hover,
+.dark .link.link.active,
+.dark .edit-link-button.edit-link-button,
+.dark .pager-link .title {
+  color: var(--vp-c-brand-lighter);
+}
+
+.dark .vp-doc a:hover,
+.dark .vp-doc a > code:hover {
+  color: var(--vp-c-brand-lightest);
+  opacity: 1;
+}
+.vp-doc a {
+  font-weight: normal;
+}
+.vp-doc p {
+  margin: 0;
+}
+/* Transition by color instead of opacity */
+.dark .vp-doc .custom-block a {
+  transition: color 0.25s;
+}
+a:hover {
+  text-decoration: none !important;
+}
+summary {
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    color: var(--vp-c-brand-lighter);
+  }
+}
+svg {
+  fill: var(--vp-c-text-1);
+}
+.VPHome {
+  background: url(/waterfall.jpg) no-repeat center;
+  background-size: cover;
+}
+.VPHero {
+  .text {
+    color: var(--vp-c-text-1);
+  }
+}
+.VPNavBarTitle .title {
+  transition: all 0.25s;
+  &:hover {
+    color: #bd34fe;
+  }
+}
+.VPButton {
+  border-color: transparent !important;
+  border-radius: 12px !important;
+}
+.VPButton.brand {
+  font-weight: 700;
+  opacity: .78;
+  border: none;
+  background: linear-gradient(to right, #09c8ce, #e4c31b, #eb2f96);
+  transition: all .25s;
+  &:hover {
+    background: linear-gradient(to right, #eb2f96, #09c8ce, #e4c31b);
+  }
+}
+.VPButton.alt {
+  background-color: transparent !important;
+  transition: all .25s;
+  &:hover {
+    border-color: #41d1ff !important;
+  }
+}
+.VPSwitch {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  &:hover {
+    border-color: #e4c31b !important;
+  }
+}
+.DocSearch-Button {
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, .36);
+  transition: all .25s;
+  &:hover {
+    background-color: rgba(0, 0, 0, .72);
+    .DocSearch-Search-Icon,
+    .DocSearch-Button-Placeholder {
+      color: #FFF;
+    }
+  }
+  .DocSearch-Search-Icon,
+  .DocSearch-Button-Placeholder {
+    color: #FFF;
+  }
+  .DocSearch-Button-Keys {
+    .DocSearch-Button-Key {
+      color: #FFF;
+      &::after {
+        color: #FFF;
+      }
+    }
+  }
+}
+.items {
+  align-items: flex-start;
+}
+.grid-3 {
+  cursor: pointer;
+  transition: all .25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  .VPFeature {
+    border: none;
+    background-color: rgba(0, 0, 0, .36);
+    transition: all .25s;
+    .icon, .title, .details {
+      color: #FFF;
+      transition: all .25s;
+    }
+    .details {
+      color: rgba(255, 255, 255, 0.88);
+    }
+    .icon {
+      border-radius: 50%;
+      background-image: radial-gradient(circle at 0%, #f669bb, #98e8de, #ffd666);
+    }
+  }
+  &:hover {
+    transform: scale(1.2);
+    transform-origin: 50%, 50%;
+    
+    .VPFeature {
+      border-color: #fbdf93;
+      background: linear-gradient(to right, #09c8ce, #e4c31b, #eb2f96);
+      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, .08), 0 3px 6px -4px rgba(0, 0, 0, .12), 0 9px 28px 8px rgba(0, 0, 0, .05);
+      .icon {
+        background-image: radial-gradient(circle at 0%, #ffd666, #f669bb, #98e8de);
+      }
+    }
+  }
+}
+.tag-version {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+  padding: 4px 8px;
+  margin-left: 8px;
+  border-radius: 12px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #FFF;
+  background: linear-gradient(to right, #41d1ff, #c41d7f);
+}

@@ -1,0 +1,61 @@
+.pd-select {
+  display: inline-block;
+  height: 40px;
+  position: relative;
+}
+.pd-select input {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  padding: 8px 10px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.pd-select input:focus {
+  border-color: #409eff;
+  transition: 0.3s;
+}
+.pd-select .pd-position-box {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 42px;
+  padding: 7px 0;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  background: #fff;
+}
+.pd-select .pd-position-box li {
+  list-style: none;
+  line-height: 40px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+}
+.pd-select .pd-position-box li:hover {
+  background: #f0f0f0;
+}
+.pd-select .pd-position-box .item-active-li {
+  color: #409eff;
+}
+.disabled {
+  cursor: not-allowed !important;
+  pointer-events: none;
+  color: #808080;
+  background: #f5f7fa;
+}
+.slide-fade-enter-active {
+  transition: all 0.2s ease-out;
+}
+.slide-fade-leave-active {
+  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-15px);
+  opacity: 0;
+}

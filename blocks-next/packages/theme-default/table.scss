@@ -1,0 +1,423 @@
+@use './mixins/bem.scss' as *;
+
+@include b(table) {
+  --bn-table-radius: 12px;
+  --bn-table-height: 68px;
+  --bn-table-header-title-color: #9ca6b9;
+  --bn-table-body-cell-color: #242934;
+  --bn-table-border-color: #edf1f6;
+  --bn-table-header-background-color: #f2f3f5;
+  --bn-table-hover-background-color: #f7f8fa;
+  --bn-table-fixed-column-box-shadow-color: #eeeeee85;
+}
+
+@include b(table) {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--bn-table-border-color);
+  border-radius: var(--bn-table-radius);
+  box-sizing: border-box;
+
+  @include when(border) {
+    .#{$namespace}-th:not(:last-child),
+    .#{$namespace}-td:not(:last-child) {
+      border-right: 1px solid var(--bn-table-border-color);
+    }
+  }
+
+  @include e(header) {
+    position: relative;
+    z-index: 2;
+    height: var(--bn-table-height);
+    background: #fff;
+    box-shadow: 0 10px 24px 0 rgb(36 41 52 / 5%);
+  }
+
+  @include e(header-title) {
+    display: inline-flex;
+    align-items: center;
+    color: var(--bn-table-header-title-color);
+    user-select: none;
+
+    &.is-sort-active {
+      color: #242934;
+    }
+  }
+
+  @include e(body) {
+    position: relative;
+    z-index: 1;
+
+    .#{$namespace}-scrollbar {
+      --bn-scrollbar-track-size: 8px;
+      --bn-scrollbar-thumb-color: #edf1f6;
+      --bn-scrollbar-right: 0;
+      --bn-scrollbar-bottom: 0;
+      --bn-scrollbar-radius: 4px;
+    }
+  }
+
+  @include when(hover) {
+    .#{$namespace}-table__body {
+      .#{$namespace}-tr:hover {
+        .#{$namespace}-td {
+          background-color: var(--bn-table-hover-background-color);
+
+          // &:first-child {
+          //   border-top-left-radius: 10px;
+          //   border-bottom-left-radius: 10px;
+          // }
+
+          // &:last-child {
+
+          // }
+        }
+      }
+    }
+  }
+
+  @include when(stripe) {
+    .#{$namespace}-table__body {
+      .#{$namespace}-tr:nth-child(even) {
+        .#{$namespace}-td {
+          background-color: var(--bn-table-hover-background-color);
+        }
+      }
+    }
+  }
+
+  @include e(header-scroll) {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  @include e(cell) {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    box-sizing: border-box;
+  }
+
+  @include e(element) {
+    margin: 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  @include e(sort) {
+    position: relative;
+    margin-left: 2px;
+    width: 12px;
+    height: 20px;
+  }
+
+  @include e(sort-ascend) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @include e(sort-descend) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include e(sort-arrow-center) {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+
+  @include e(setting) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -10px 0 20px 0 rgb(36 41 52 / 5%);
+    cursor: pointer;
+  }
+
+  @include e(setting-icon) {
+    .line {
+      height: 1px;
+      background: #9ca6b9;
+    }
+
+    .line-1 {
+      width: 18px;
+    }
+
+    .line-2 {
+      margin: 5px 0;
+      width: 15px;
+    }
+
+    .line-3 {
+      width: 11px;
+    }
+  }
+
+  @include e(external-header) {
+    display: flex;
+    border-bottom: 1px solid #edf1f6;
+    padding: 24px 32px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  @include e(external-footer) {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #edf1f6;
+    padding: 24px 32px;
+    box-sizing: border-box;
+  }
+
+  @include e(sort-popup) {
+    border-radius: 8px;
+    padding: 23px 12px;
+    width: 128px;
+    background: #fff;
+    box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
+    box-sizing: border-box;
+  }
+
+  @include e(sort-item) {
+    border-radius: 8px;
+    padding: 13px 0;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 14px;
+    cursor: pointer;
+  }
+
+  @include e(sort-item-active) {
+    color: #0056ff;
+    background-color: #f8faff;
+  }
+
+  @include e(loading) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: var(--bn-primary);
+    background-color: rgb(255 255 255 / 60%);
+  }
+
+  // 固定列相关
+
+  .is-fixed-left {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+  }
+
+  .is-fixed-left-last {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 4;
+      width: 8px;
+      height: 100%;
+      box-shadow: none;
+      transition: box-shadow 0.1s cubic-bezier(0, 0, 1, 1);
+      content: '';
+      pointer-events: none;
+    }
+
+    &.is-scroll-position-right,
+    &.is-scroll-position-middle {
+      &::after {
+        box-shadow: inset 6px 0 8px -3px var(--bn-table-fixed-column-box-shadow-color);
+      }
+    }
+  }
+
+  .is-fixed-right {
+    position: sticky;
+    right: 0;
+    z-index: 3;
+  }
+
+  .is-fixed-right-first {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      width: 8px;
+      height: 100%;
+      box-shadow: none;
+      transition: box-shadow 0.1s cubic-bezier(0, 0, 1, 1);
+      content: '';
+      pointer-events: none;
+    }
+
+    &.is-scroll-position-left,
+    &.is-scroll-position-middle {
+      &::after {
+        box-shadow: inset -6px 0 8px -3px var(--bn-table-fixed-column-box-shadow-color);
+      }
+    }
+  }
+}
+
+@include b(td) {
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--bn-table-body-cell-color);
+  background-color: #fff;
+  box-sizing: border-box;
+  line-height: 1;
+  word-break: break-all;
+
+  @include when(align-left) {
+    text-align: left;
+  }
+
+  @include when(align-center) {
+    text-align: center;
+  }
+
+  @include when(align-right) {
+    text-align: right;
+  }
+
+  @include when(resize) {
+    border-right-color: #0056ff !important;
+  }
+}
+
+@include b(th) {
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  @include when(align-left) {
+    text-align: left;
+  }
+
+  @include when(align-center) {
+    text-align: center;
+  }
+
+  @include when(align-right) {
+    text-align: right;
+  }
+
+  @include e(handler) {
+    position: absolute;
+    top: 0;
+    right: -4px;
+    z-index: 1;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+  }
+
+  @include when(resize) {
+    border-right-color: var(--bn-primary) !important;
+  }
+}
+
+@include b(tr) {
+  &:not(:last-child) {
+    .#{$namespace}-td {
+      // border-bottom: 1px solid var(--bn-table-border-color);
+    }
+  }
+}
+
+@include b(table-setting) {
+  @include e(popup) {
+    border-radius: 8px;
+    width: 244px;
+    // max-height: 393px;
+    background: #fff;
+    box-shadow: 0 8px 40px 0 rgb(100 107 122 / 15%);
+  }
+
+  @include e(list) {
+    margin: 0;
+    border-bottom: 1px solid #edf1f6;
+    padding: 18px 12px;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  @include e(list-item) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+
+    &:not(.is-disabled):hover {
+      background-color: #f8faff;
+    }
+
+    @include when(disabled) {
+      color: #9ca6b9;
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(list-item-left) {
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(list-item-title) {
+    margin-left: 8px;
+    line-height: 1;
+    color: inherit;
+  }
+
+  @include e(drag-icon) {
+    cursor: move;
+
+    .line {
+      width: 12px;
+      height: 1px;
+      background: #9ca6b9;
+      opacity: 0.6;
+
+      &:not(:last-child) {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  @include e(footer) {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

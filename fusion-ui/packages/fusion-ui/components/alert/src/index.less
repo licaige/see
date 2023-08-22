@@ -1,0 +1,131 @@
+@import "../../../styles/base.less";
+[data-theme="light"] .fn-alert,
+.fn-alert[data-theme="light"],
+.fn-alert {
+  font-size: 14px;
+}
+
+[data-theme="dark"] .fn-alert,
+.fn-alert[data-theme="dark"] {
+  font-size: 14px;
+}
+
+.fn-alert{
+  padding: 0 10px;
+  position: relative;
+  border-radius: 5px;
+  padding: 5px;
+  
+  &-info{
+    background-color: #85888e;
+  }
+  &-success{
+    background-color: var(--fn-green-500);
+  }
+  &-warning{
+    background-color:#e6a23c;
+  }
+  &-danger{
+    background-color: #f56c6c;
+  }
+
+  &-content{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    > .fixed-tip{
+      margin-right: 5px;
+      font-weight: 700;
+      color: #fff;
+    }
+    > .scroll-area{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      > .bar{
+        height: 100%;
+        color:#fff;
+        >.box{
+          .title{
+            line-height: initial;
+            font-size: 13px;
+            font-weight: 700;
+          }
+          .description{
+            line-height: initial;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    > .close{
+      cursor: pointer;
+    }
+    
+    > .slots{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .bar-scroll{
+      position: relative;
+      animation: var(--direction) var(--bar-duration) linear infinite;
+      &:hover{
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+
+@keyframes barScrollToTop {
+  0%{
+    bottom: var(--scroll-start);
+  }
+  20%{
+    bottom: 0;
+  }
+  80%{
+    bottom: 0;
+  }
+  100%{
+    bottom: var(--scroll-end);
+  }
+}
+
+@keyframes barScrollToLeft {
+  0%{
+    left: 101%;
+  }
+  100%{
+    left: -101%;
+  }
+}
+
+
+.alert-fade-enter-active{
+  animation: alert-fade-in .3s;
+}
+.alert-fade-leave-active {
+  animation: alert-fade-out .3s;
+}
+@keyframes alert-fade-in{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes alert-fade-out{
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
