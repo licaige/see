@@ -1,0 +1,45 @@
+@import './common/var.scss';
+
+.so-tabs {
+  position: relative;
+  background-color: $white;
+
+  &__nav {
+    position: relative;
+    display: flex;
+    height: 45px;
+    user-select: none;
+  }
+
+  &__item {
+    position: relative;
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+    color: $gray-7;
+    font-size: $font-size-md;
+    cursor: pointer;
+
+    &--active {
+      color: $text-color;
+      font-weight: $font-weight-bold;
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2.5em;
+        height: 3px;
+        content: '';
+        background-color: $text-link-color;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+}

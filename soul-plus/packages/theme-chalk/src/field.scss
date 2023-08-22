@@ -1,0 +1,137 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+@import './icon.scss';
+
+$field-padding: 15px;
+$field-disabled-color: $gray-5;
+$icon-padding: 8px;
+$icon-clear-color: $gray-5;
+$error-color: $red;
+
+.so-field {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px $field-padding;
+  color: $text-color;
+  font-size: $font-size-md;
+  line-height: 24px;
+  word-wrap: break-word;
+
+  & + & {
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: $field-padding;
+      right: $field-padding;
+      border-top: 1px solid $border-color;
+    }
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &--clickable {
+    cursor: pointer;
+    &:active {
+      background-color: $active-color;
+    }
+  }
+
+  &__clear,
+  &__left-icon,
+  &__right-icon {
+    flex-shrink: 0;
+    line-height: inherit;
+    i {
+      display: block;
+    }
+  }
+
+  &__left-icon {
+    margin-right: $icon-padding;
+  }
+
+  &__clear,
+  &__right-icon {
+    margin-right: -1 * $icon-padding;
+    padding: 0 $icon-padding;
+    line-height: inherit;
+    color: $text-secondary-color;
+  }
+
+  &__clear {
+    color: $icon-clear-color;
+    cursor: pointer;
+  }
+
+  &__label {
+    flex: none;
+    width: 6em;
+
+    &--required:before {
+      margin-right: 2px;
+      color: $error-color;
+      content: '*';
+    }
+  }
+
+  &__value {
+    position: relative;
+    flex: 1;
+    color: $text-secondary-color;
+    text-align: right;
+    word-wrap: break-word;
+  }
+
+  &__limit {
+    margin-top: 5px;
+    color: $text-secondary-color;
+    text-align: right;
+    font-size: $font-size-sm;
+    line-height: 1.4;
+  }
+
+  &__error-message {
+    margin-top: 5px;
+    color: $error-color;
+    text-align: left;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+
+  &__control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: $text-color;
+    line-height: inherit;
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    resize: none;
+
+    &:read-only {
+      cursor: default;
+    }
+
+    &:disabled {
+      color: $field-disabled-color;
+    }
+
+    &::placeholder {
+      color: $field-disabled-color;
+    }
+  }
+}

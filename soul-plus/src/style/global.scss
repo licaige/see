@@ -1,0 +1,25 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+[class*='page-'] {
+  flex: 1;
+  background-color: $background-color;
+}
+
+.comp-title {
+  padding: 10px 20px;
+  color: $gray-6;
+}
+
+.comp-wrap {
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+.secondary {
+  color: $gray-6;
+}

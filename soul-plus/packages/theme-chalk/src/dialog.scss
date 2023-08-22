@@ -1,0 +1,75 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+@import './popup.scss';
+@import './button.scss';
+
+$dialog-border-color: $gray-4;
+$dialog-side-padding: 20px;
+
+.so-dialog {
+  @include rp('.so-popup') {
+    top: 45%;
+    border-radius: $border-radius-lg;
+    width: 300px;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__title {
+    padding: 15px $dialog-side-padding;
+    font-size: 18px;
+    line-height: 1;
+    color: $text-color;
+    text-align: center;
+    @include ellipsis;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__message {
+    padding: 30px $dialog-side-padding $dialog-side-padding;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow: auto;
+    text-align: center;
+
+    &--has-title {
+      padding-top: 0;
+      color: $gray-7;
+    }
+  }
+
+  &__footer {
+    position: relative;
+  }
+
+  &__btns {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    border-top: 1px solid $dialog-border-color;
+    border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  }
+
+  &__confirm,
+  &__cancel {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  &__confirm {
+    color: $primary-color;
+  }
+
+  &__cancel + &__confirm {
+    margin-left: 0;
+    border-left: 1px solid $dialog-border-color;
+  }
+}

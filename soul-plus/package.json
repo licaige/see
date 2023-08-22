@@ -1,0 +1,90 @@
+{
+  "name": "soul-plus",
+  "version": "0.0.6",
+  "description": "Mobile UI Components built on Vue3",
+  "author": "jsdawn",
+  "license": "MIT",
+  "main": "lib/soul-plus.js",
+  "module": "es/soul-plus.js",
+  "style": "lib/theme-chalk/index.css",
+  "files": [
+    "lib",
+    "es",
+    "packages"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lib:theme": "cd packages/theme-chalk && yarn clean && yarn build",
+    "lib": "rm -rf es && rm -rf lib && rollup -c && yarn run lib:theme",
+    "docker:build": "chmod +x ./docker-build.sh && ./docker-build.sh",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:build.gitee": "cross-env BUILD_ENV=/soul-plus/ vuepress build docs",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "cross-env SBK_URL=/soul-plus/ build-storybook -o ./.storybook/dist && yarn run storybook:serve",
+    "storybook:serve": "http-server -c-1 ./.storybook/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/jsdawn/soul-plus.git"
+  },
+  "homepage": "https://gitee.com/jsdawn/soul-plus.git",
+  "keywords": [
+    "ui",
+    "vue",
+    "vue3",
+    "mobile",
+    "frontend",
+    "component",
+    "components",
+    "soul"
+  ],
+  "dependencies": {
+    "highlight.js": "11.2.0",
+    "vue": "^3.2.6",
+    "vue-router": "4"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@storybook/addon-actions": "^6.4.4",
+    "@storybook/addon-essentials": "^6.4.4",
+    "@storybook/addon-links": "^6.4.4",
+    "@storybook/vue3": "^6.4.4",
+    "@vitejs/plugin-vue": "^1.9.2",
+    "@vue/compiler-sfc": "^3.2.19",
+    "@vuepress/bundler-vite": "^2.0.0-beta.26",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.26",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-import": "^1.13.3",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.12.21",
+    "postcss-loader": "^6.1.1",
+    "rollup": "^2.57.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-esbuild": "^4.5.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "6.0.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "storybook-builder-vite": "^0.1.10",
+    "vite": "^2.5.10",
+    "vue-loader": "^16.8.3",
+    "vuepress": "^2.0.0-beta.26"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 10",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
+}

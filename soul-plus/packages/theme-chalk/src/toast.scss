@@ -1,0 +1,57 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+@import './common/animation.scss';
+@import './popup.scss';
+
+.so-toast {
+  @include rp('.so-popup') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 9px 15px;
+    border-radius: 3px;
+    min-width: 60px;
+    max-width: 70%;
+    width: fit-content;
+    line-height: 1.5;
+    text-align: center;
+    word-break: break-all;
+    font-size: $font-size-md;
+    color: #fff;
+    background-color: rgba(58, 58, 58, 0.9);
+    transition: all $animation-duration-fast;
+
+    &--bottom {
+      top: auto;
+      bottom: 20%;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes so-toast-slide-up-enter {
+    from {
+      transform: translate3d(-50%, 25px, 0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes so-toast-slide-up-leave {
+    to {
+      transform: translate3d(-50%, -25px, 0);
+      opacity: 0;
+    }
+  }
+
+  &-slide-up {
+    &-enter-active {
+      animation: so-toast-slide-up-enter $animation-duration-fast both
+        $animation-timing-function-enter;
+    }
+
+    &-leave-active {
+      animation: so-toast-slide-up-leave $animation-duration-base both
+        $animation-timing-function-leave;
+    }
+  }
+}

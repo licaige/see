@@ -1,0 +1,113 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+@import './popup.scss';
+
+$item-line-height: 22px;
+$sheet-side-padding: 20px;
+$cancel-color: $gray-7;
+
+.so-action-sheet {
+  @include rp('.so-popup') {
+    max-height: 80%;
+    overflow: hidden;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    flex-shrink: 0;
+    padding: 12px $sheet-side-padding;
+    color: $text-color;
+    font-size: 18px;
+    @include ellipsis;
+  }
+
+  &__description {
+    flex-shrink: 0;
+    padding: 12px $sheet-side-padding;
+    color: $text-secondary-color;
+    text-align: center;
+  }
+
+  &__title + &__description {
+    padding-top: 0;
+    margin-top: -5px;
+  }
+
+  &__content {
+    flex: 1 auto;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    overflow-y: auto;
+  }
+
+  &__item,
+  &__cancel {
+    position: relative;
+    padding: 14px $sheet-side-padding;
+    box-sizing: border-box;
+    line-height: $item-line-height;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+      background-color: $active-color;
+    }
+
+    &--disabeld,
+    &--loading {
+      color: $disabled-color !important;
+      &:active {
+        background-color: inherit;
+      }
+    }
+
+    &--loading {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  &__item + &__item {
+    border-top: 1px solid $border-color;
+  }
+
+  &__indicator {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    margin-top: -7px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 8px;
+    border-color: $disabled-color $disabled-color $disabled-color transparent;
+    border-style: solid;
+    border-width: 1px;
+    animation: action-loading-spin 1s infinite linear;
+  }
+
+  &__cancel {
+    flex-shrink: 0;
+    color: $cancel-color;
+    border-top: 1px solid $border-color;
+  }
+
+  &__separate {
+    flex-shrink: 0;
+    height: 6px;
+    background-color: $background-color;
+  }
+
+  // keyframes
+  @keyframes action-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import './common/var.scss';
+@import './mixins/mixins.scss';
+
+@font-face {
+  font-family: 'so-icon'; /* Project id 2738761 */
+  @include font-src($font-path);
+}
+
+.so-icon {
+  font-family: 'so-icon';
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    display: inline-block;
+  }
+}
+
+// ↓↓↓↓↓↓ icons class ↓↓↓↓↓↓
+
+.so-icon-balance-o:before {
+  content: '\e697';
+}
+
+.so-icon-bar-chart-o:before {
+  content: '\e698';
+}
+
+.so-icon-browsing-history-o:before {
+  content: '\e699';
+}
+
+.so-icon-clear:before {
+  content: '\e69a';
+}
+
+.so-icon-delete-o:before {
+  content: '\e69e';
+}
+
+.so-icon-fire:before {
+  content: '\e6a3';
+}
+
+.so-icon-font:before {
+  content: '\e6a4';
+}
+
+.so-icon-gift:before {
+  content: '\e6a5';
+}
+
+.so-icon-gift-o:before {
+  content: '\e6a6';
+}
+
+.so-icon-location-o:before {
+  content: '\e6a8';
+}
+
+.so-icon-lock:before {
+  content: '\e6a9';
+}
+
+.so-icon-photo-fail:before {
+  content: '\e6ae';
+}
+
+.so-icon-wap-home:before {
+  content: '\e6b9';
+}
+
+.so-icon-video-o:before {
+  content: '\e6b8';
+}
+
+.so-icon-wap-home-o:before {
+  content: '\e6ba';
+}
+
+.so-icon-warning:before {
+  content: '\e6bb';
+}
+
+.so-icon-user-circle-o:before {
+  content: '\e6bc';
+}
+
+.so-icon-warning-o:before {
+  content: '\e6bd';
+}
+
+.so-icon-shrink:before {
+  content: '\e6be';
+}
+
+.so-icon-star:before {
+  content: '\e6bf';
+}
+
+.so-icon-fail:before {
+  content: '\e6a1';
+}
+
+.so-icon-success:before {
+  content: '\e6b6';
+}
+
+.so-icon-balance-list:before {
+  content: '\e696';
+}
+
+.so-icon-arrow:before {
+  content: '\e695';
+}
+
+.so-icon-arrow-left:before {
+  content: '\e694';
+}
