@@ -5,6 +5,7 @@
     <m-progress :percent="60" bgColor="#e6a23c" isShowText roundCorner></m-progress>
     <m-progress :percent="90" bgColor="#5cb87a" isShowText roundCorner></m-progress>
     <m-progress :percent="100" bgColor="#6f7ad3" isShowText roundCorner></m-progress>
+
 </template>
 <!-- js -->
 <script setup>

@@ -17,6 +17,7 @@ const props = defineProps({
 })
 const width = ref(props.span<=24?props.span%1==0?(100/24)*props.span+'%':'':'')
 const offset = ref(props.offset<=24?props.offset%1==0?(100/24)*props.offset+'%':'':'')
+
 </script>
 
 <style lang="scss" scoped>

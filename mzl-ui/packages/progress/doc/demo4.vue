@@ -5,6 +5,7 @@
     <m-progress :percent="60" currentStatus="OTHER" roundCorner isAnimation :progressSpeed="2"></m-progress>
     <m-progress :percent="90" currentStatus="FAIL" roundCorner isAnimation :progressSpeed="1"></m-progress>
     <m-progress :percent="100" bgColor="#505050" roundCorner isAnimation :progressSpeed="6"></m-progress>
+
 </template>
 <!-- js -->
 <script setup>

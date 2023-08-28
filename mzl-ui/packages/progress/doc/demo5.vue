@@ -7,6 +7,7 @@
     <m-progress :percent="100" progressHeight="20" currentStatus="SUCCESS" roundCorner>
       <m-button type="success" size="mini" round>完成</m-button>
     </m-progress>
+
 </template>
 <!-- js -->
 <script setup>

@@ -5,6 +5,7 @@
     <m-progress :progressHeight="26" :percent="60" currentStatus="OTHER" isShowText></m-progress>
     <m-progress :progressHeight="26" :percent="90" currentStatus="FAIL" isShowText></m-progress>
     <m-progress :progressHeight="26" :percent="100" currentStatus="SUCCESS" isShowText></m-progress>
+
 </template>
 <style scoped>
 .mzl-progress {
