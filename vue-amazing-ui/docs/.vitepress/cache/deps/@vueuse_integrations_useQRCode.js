@@ -2171,8 +2171,8 @@ var require_browser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@vueuse+shared@10.3.0_vue@3.3.4/node_modules/@vueuse/shared/index.mjs
-var isClient = typeof window !== "undefined";
+// node_modules/.pnpm/@vueuse+shared@10.4.1_vue@3.3.4/node_modules/@vueuse/shared/index.mjs
+var isClient = typeof window !== "undefined" && typeof document !== "undefined";
 var noop = () => {
 };
 var isIOS = getIsIOS();
@@ -2202,7 +2202,7 @@ function toRef2(...args) {
   return typeof r === "function" ? readonly(customRef(() => ({ get: r, set: noop }))) : ref(r);
 }
 
-// node_modules/.pnpm/@vueuse+integrations@10.3.0_focus-trap@7.5.2_qrcode@1.5.3_vue@3.3.4/node_modules/@vueuse/integrations/useQRCode.mjs
+// node_modules/.pnpm/@vueuse+integrations@10.4.1_focus-trap@7.5.2_qrcode@1.5.3_vue@3.3.4/node_modules/@vueuse/integrations/useQRCode.mjs
 var import_qrcode = __toESM(require_browser(), 1);
 function useQRCode(text, options) {
   const src = toRef2(text);

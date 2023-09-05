@@ -36,16 +36,14 @@ const props = withDefaults(defineProps<Props>(), {
   fileList: () => []
 })
 const uploadedFiles = ref<FileType[]>([]) // 上传文件列表
-const showUpload = ref(1)//多少个上传框
-const uploading = ref<boolean[]>(Array(props.maxCount).fill(false))//默认都是false
-const uploadInput = ref()//方便拿取input
+const showUpload = ref(1)
+const uploading = ref<boolean[]>(Array(props.maxCount).fill(false))
+const uploadInput = ref()
 watchEffect(() => { // 回调立即执行一次，同时会自动跟踪回调中所依赖的所有响应式依赖
   initUpload()
 })
-// 默认初始化数据
 function initUpload () {
   uploadedFiles.value = [...props.fileList]
-  //上传文件列表数据清理，根据最大上传文件数来
   if (uploadedFiles.value.length > props.maxCount) {
     uploadedFiles.value.splice(props.maxCount)
   }
@@ -53,30 +51,25 @@ function initUpload () {
     showUpload.value = uploadedFiles.value.length
   } else {
     if (uploadedFiles.value.length < props.maxCount) {
-      // 给出一个上传的入口
       showUpload.value = props.fileList.length + 1
     } else {
       showUpload.value = props.maxCount
     }
   }
 }
-// 检查url是否为图片
-function isImage (url: string) {
+function isImage (url: string) { // 检查url是否为图片
   const imageUrlReg = /\.(jpg|jpeg|png|gif)$/i
   const base64Reg = /^data:image/
   return imageUrlReg.test(url) || base64Reg.test(url)
 }
-// 检查url是否为pdf
-function isPDF (url: string) {
+function isPDF (url: string) { // 检查url是否为pdf
   const pdfUrlReg = /\.pdf$/i
   const base64Reg = /^data:application\/pdf/
   return pdfUrlReg.test(url) || base64Reg.test(url)
 }
-// 拖拽上传
-function onDrop (e: DragEvent, index: number) {
+function onDrop (e: DragEvent, index: number) { // 拖拽上传
   const files = e.dataTransfer?.files
   if (files?.length) {
-    // 拿到拖拽文件夹内文件数
     const len = files.length
     for (let n = 0; n < len; n++) {
       if (index + n <= props.maxCount) {
@@ -89,12 +82,10 @@ function onDrop (e: DragEvent, index: number) {
     uploadInput.value[index].value = ''
   }
 }
-// 吊起系统默认上传文件弹窗行为
 function onClick (index: number) {
   uploadInput.value[index].click()
 }
-// 点击上传
-function onUpload (e: any, index: number) {
+function onUpload (e: any, index: number) { // 点击上传
   const files = e.target.files
   if (files?.length) {
     const len = files.length
@@ -109,9 +100,7 @@ function onUpload (e: any, index: number) {
     uploadInput.value[index].value = ''
   }
 }
-// 需要抛出的事件
 const emits = defineEmits(['update:fileList', 'change', 'remove'])
-// 上传文件
 const uploadFile = function (file: File, index: number) { // 统一上传文件方法
 	// console.log('开始上传 upload-event files:', file)
   if (!props.beforeUpload(file)) { // 使用用户钩子进行上传前文件判断，例如大小、类型限制
@@ -132,7 +121,6 @@ const uploadFile = function (file: File, index: number) { // 统一上传文件�
     }
   }
 }
-// base64的方式上传文件
 function base64Upload (file: File, index: number) {
   var reader = new FileReader()
   reader.readAsDataURL(file) // 以base64方式读取文件
@@ -167,7 +155,6 @@ function base64Upload (file: File, index: number) {
     // console.log('读取结束 onloadend:', e)
   }
 }
-// 自定义上传行为
 function customUpload (file: File, index: number) {
   props.customRequest(file).then((res: any) => {
     uploadedFiles.value.push(res)
@@ -182,22 +169,16 @@ function customUpload (file: File, index: number) {
     uploading.value[index] = false
   })
 }
-// 删除文件
 function onRemove (index: number) {
-  //上传文件列表数小于最大上传数
   if (uploadedFiles.value.length < props.maxCount) {
-    // 上传入口减少一个
     showUpload.value--
   }
-  // 删除当前文件
   const removeFile = uploadedFiles.value.splice(index, 1)
-  // 抛出数据，方便对应父组件使用
   emits('remove', removeFile)
   emits('update:fileList', uploadedFiles.value)
   emits('change', uploadedFiles.value)
 }
 const message = ref()
-// 错误消息
 function onError (content: any) {
   message.value.error(content) // error调用
 }
@@ -214,23 +195,17 @@ function onError (content: any) {
           @dragover.stop.prevent
           @drop.stop.prevent="disabled ? () => false : onDrop($event, n-1)"
           @click="disabled ? () => false : onClick(n-1)">
-          <!--input，用于调用系统默认弹窗行为-->
           <input ref="uploadInput" type="file" @click.stop :accept="accept" :multiple="multiple" @change="onUpload($event, n-1)" style="display: none;" />
-          <!--默认上传样式-->
           <div>
-            <!--加号-->
             <svg focusable="false" class="u-plus" data-icon="plus" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><defs></defs><path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path><path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path></svg>
-            <!--默认上传提示文字-->
             <p class="u-tip">
               <slot>{{ tip }}</slot>
             </p>
           </div>
         </div>
-        <!--图片上传中的加载动画-->
         <div class="m-file-uploading" v-show="uploading[n-1]">
           <Spin class="u-spin" :tip="uploadingTip" size="small" indicator="dynamic-circle"/>
         </div>
-        <!--图片上传成功之后地行为-->
         <div class="m-file-preview" v-if="uploadedFiles[n-1]">
           <img class="u-image" v-if="isImage(uploadedFiles[n-1].url)" :style="`object-fit: ${fit};`" :src="uploadedFiles[n-1].url" :alt="uploadedFiles[n-1].name" />
           <svg class="u-file" v-else-if="isPDF(uploadedFiles[n-1].url)" focusable="false" data-icon="file-pdf" aria-hidden="true" viewBox="64 64 896 896"><path d="M531.3 574.4l.3-1.4c5.8-23.9 13.1-53.7 7.4-80.7-3.8-21.3-19.5-29.6-32.9-30.2-15.8-.7-29.9 8.3-33.4 21.4-6.6 24-.7 56.8 10.1 98.6-13.6 32.4-35.3 79.5-51.2 107.5-29.6 15.3-69.3 38.9-75.2 68.7-1.2 5.5.2 12.5 3.5 18.8 3.7 7 9.6 12.4 16.5 15 3 1.1 6.6 2 10.8 2 17.6 0 46.1-14.2 84.1-79.4 5.8-1.9 11.8-3.9 17.6-5.9 27.2-9.2 55.4-18.8 80.9-23.1 28.2 15.1 60.3 24.8 82.1 24.8 21.6 0 30.1-12.8 33.3-20.5 5.6-13.5 2.9-30.5-6.2-39.6-13.2-13-45.3-16.4-95.3-10.2-24.6-15-40.7-35.4-52.4-65.8zM421.6 726.3c-13.9 20.2-24.4 30.3-30.1 34.7 6.7-12.3 19.8-25.3 30.1-34.7zm87.6-235.5c5.2 8.9 4.5 35.8.5 49.4-4.9-19.9-5.6-48.1-2.7-51.4.8.1 1.5.7 2.2 2zm-1.6 120.5c10.7 18.5 24.2 34.4 39.1 46.2-21.6 4.9-41.3 13-58.9 20.2-4.2 1.7-8.3 3.4-12.3 5 13.3-24.1 24.4-51.4 32.1-71.4zm155.6 65.5c.1.2.2.5-.4.9h-.2l-.2.3c-.8.5-9 5.3-44.3-8.6 40.6-1.9 45 7.3 45.1 7.4zm191.4-388.2L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"></path></svg>
