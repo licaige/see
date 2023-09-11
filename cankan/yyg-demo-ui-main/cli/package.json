@@ -1,0 +1,24 @@
+{
+  "name": "@yyg-demo-ui/cli",
+  "version": "1.0.0",
+  "description": "命令行工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "ts-node ./index.ts create"
+  },
+  "keywords": [],
+  "author": "zhangyoubin13",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/inquirer": "8.2.5",
+    "@types/shelljs": "^0.8.11",
+    "chalk": "4.1.2",
+    "commander": "^10.0.0",
+    "inquirer": "8.2.5",
+    "log-symbols": "4.1.0",
+    "ora": "5.4.1",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1"
+  }
+}

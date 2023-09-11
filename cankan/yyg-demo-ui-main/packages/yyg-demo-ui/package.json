@@ -1,0 +1,21 @@
+{
+  "name": "@yyg-demo-ui/yyg-demo-ui",
+  "version": "1.0.0",
+  "description": "组件库入口",
+  "author": "zhangyoubin13",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ../../lib && vue-tsc --noEmit && vite build"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@yyg-demo-ui/foo": "workspace:^1.0.0",
+    "@yyg-demo-ui/ygg-demo-ui": "workspace:^1.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^4.3.1",
+    "vite-plugin-dts": "^2.1.0"
+  }
+}

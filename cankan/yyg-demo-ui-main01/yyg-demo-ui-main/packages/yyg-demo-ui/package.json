@@ -1,0 +1,21 @@
+{
+  "name": "@yyg-demo-ui/yyg-demo-ui",
+  "version": "1.0.0",
+  "description": "组件库入口",
+  "main": "index.ts",
+  "scripts": {
+    "build": "rimraf ../../lib && vue-tsc --noEmit && vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@yyg-demo-ui/dong": "workspace:^",
+    "@yyg-demo-ui/foo": "workspace:^"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "vite-plugin-dts": "^2.3.0"
+  }
+}

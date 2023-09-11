@@ -1,0 +1,71 @@
+{
+  "name": "yyg-demo-ui",
+  "version": "1.0.3",
+  "description": "",
+  "private": false,
+  "type": "module",
+  "main": "./lib/yyg-demo-ui.umd.js",
+  "module": "./lib/yyg-demo-ui.es.js",
+  "types": "./lib/yyg-demo-ui/index.d.ts",
+  "files": [
+    "./lib",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "require": "./lib/yyg-demo-ui.umd.js",
+      "import": "./lib/yyg-demo-ui.es.js"
+    }
+  },
+  "scripts": {
+    "dev:dev": "pnpm run -C example dev:dev",
+    "dev:uat": "pnpm run -C example dev:uat",
+    "dev:prod": "pnpm run -C example dev:prod",
+    "build:dev": "pnpm run -C example build:dev",
+    "build:uat": "pnpm run -C example build:uat",
+    "build:prod": "pnpm run -C example build:prod",
+    "preview:example": "pnpm run -C example preview",
+    "build:lib": "pnpm run -C packages/yyg-admin-ui build",
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs build",
+    "docs:preview": "pnpm run -C docs serve",
+    "docs:deploy": "pnpm run docs:build && gh-pages -d docs/.vitepress/dist",
+    "gen:component": "pnpm run -C cli gen",
+    "start:verdaccio": "pnpm verdaccio",
+    "pub:local": "pnpm publish --registry http://localhost:4873/",
+    "lint": "eslint \"{cli,packages,docs,example}/**/*.{js,ts,vue,jsx,tsx}\" --fix"
+  },
+  "keywords": [],
+  "author": "程序员优雅哥",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "cli",
+    "docs",
+    "example"
+  ],
+  "dependencies": {
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue-jsx": "^2.1.0",
+    "eslint": "^8.26.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.7.0",
+    "gh-pages": "^4.0.0",
+    "sass": "^1.56.0",
+    "typescript": "^4.8.4",
+    "verdaccio": "^5.16.3",
+    "vite": "^3.2.2",
+    "vite-plugin-eslint": "^1.8.1",
+    "vue-tsc": "^1.0.9"
+  }
+}
