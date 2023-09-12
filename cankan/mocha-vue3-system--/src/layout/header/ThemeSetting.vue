@@ -101,9 +101,8 @@ let colors = reactive({
 
 function setCssVars() {
   console.log(useTheme.css)
-  colors.primary.value =
-    useTheme.css['--el-color-primary'] || currentCss.getPropertyValue('--el-color-primary')
-
+  //@ts-ignore
+  colors.primary.value = useTheme.css['--el-color-primary'] || currentCss.getPropertyValue('--el-color-primary')
   colors.info.value = currentCss.getPropertyValue('--el-color-info')
   colors.warning.value = currentCss.getPropertyValue('--el-color-warning')
   colors.danger.value = currentCss.getPropertyValue('--el-color-danger')
@@ -113,12 +112,16 @@ function setCssVars() {
 function changeLayout(layout: string) {}
 
 function changeColor(color: string, css: string) {
+  // 相当于清空默认配色方案
+ //@ts-ignore
   document.querySelector('html').className = ''
+  // 设置了自定义配色
   document.documentElement.style.setProperty(css, color)
+  // 设置用户定义的CSS变量
   useTheme.setCustomized(colors)
+    // 设置配色主题,相当于清除缓存中的默认主题数据
   useTheme.setScheme('')
 }
-
 onMounted(() => {
   setCssVars()
 })

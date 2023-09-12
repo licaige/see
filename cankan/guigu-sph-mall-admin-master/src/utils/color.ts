@@ -9,11 +9,13 @@ export function hexToRgb(str: any) {
   let hexs: any = ''
   const reg = /^\#?[0-9A-Fa-f]{6}$/
   if (!reg.test(str)) return ElMessage.warning('输入错误的hex')
+  // 通过repalce把#去掉
   str = str.replace('#', '')
-
+  // 把这个十六进制按照两位分割成一个数组
   hexs = str.match(/../g)
-
+  // 接来来会循环这个数组，然后把里面的每一项都变成十进制的整数
   for (let i = 0; i < 3; i++) hexs[i] = parseInt(hexs[i], 16)
+  // 这里解释一下parseInt这个方法，它的作用是解析一个字符串并返回指定基数的十进制整数，比如说parseInt('9E', 16)的意思就是把16进制的9E转化成一个十进制的整数
   return hexs
 }
 
@@ -28,6 +30,7 @@ export function rgbToHex(r: any, g: any, b: any) {
   const reg = /^\d{1,3}$/
   if (!reg.test(r) || !reg.test(g) || !reg.test(b))
     return ElMessage.warning('输入错误的rgb颜色值')
+
   const hexs = [r.toString(16), g.toString(16), b.toString(16)]
 
   for (let i = 0; i < 3; i++) if (hexs[i].length == 1) hexs[i] = `0${hexs[i]}`
@@ -43,6 +46,7 @@ export function rgbToHex(r: any, g: any, b: any) {
  */
 export function getDarkColor(color: string, level: number) {
   const reg = /^\#?[0-9A-Fa-f]{6}$/
+  // 首先会判断color值是否合法，也就是是不是十六进制的
   if (!reg.test(color)) return ElMessage.warning('输入错误的hex颜色值')
   const rgb = hexToRgb(color)
   for (let i = 0; i < 3; i++)
