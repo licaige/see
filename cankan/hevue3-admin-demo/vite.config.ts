@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       AutoImport({
         resolvers: [
           ElementPlusResolver({
-            importStyle: 'sass',
+            importStyle: 'sass',// 增加此行
           }),
           // 自动导入图标组件
           IconsResolver({
@@ -65,6 +65,7 @@ export default defineConfig(({ mode }) => {
     },
     css: {
       preprocessorOptions: {
+        // 全局样式引入
         scss: {
           additionalData: `
             @use "./src/assets/style/main.scss" as globalScss;@use "./src/assets/style/element/index.scss" as *;

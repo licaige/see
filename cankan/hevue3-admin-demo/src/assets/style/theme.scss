@@ -20,6 +20,7 @@ $light : ( // light theme
   '--color-menu-text': #7a7a7a,
   '--color-border-1': #ddd);
 $dark : () !default;
+//在scss中，把变量放在括号里的格式叫做map，之所以使用map格式，是因为我们可以进行许多的操作，比如更方便的导入到其他文件，更方便的复用、遍历等
 // map.merge方法类似于Object.assign，用于合并两个map，如果有相同的key，后面的会覆盖前面的，但不会影响原map
 // map.deep-merge方法与map.merge类似，但是如果value是map，会递归合并
 $dark : map.deep-merge($light, ( // dark theme
@@ -34,16 +35,14 @@ $dark : map.deep-merge($light, ( // dark theme
 
 html {
 
-  @each $key,
-  $value in $light {
+  @each $key, $value in $light {
     #{$key}: $value;
   }
 }
 
 html.dark {
 
-  @each $key,
-  $value in $dark {
+  @each $key, $value in $dark {
     #{$key}: $value;
   }
 }
