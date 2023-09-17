@@ -1,0 +1,27 @@
+# 忽略目录
+.idea
+.vscode
+build/
+docs/
+examples/
+packages/
+public/
+node_modules/
+src/
+docs/
+
+# 忽略指定文件
+.gitignore
+babel.config.js
+jsconfig.json
+vite.config.js
+index.html
+buildWebTypes.js
+
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+
+tslint.json
+.browserslistrc
+*.map

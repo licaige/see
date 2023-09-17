@@ -1,0 +1,171 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4078839 */
+  src: url('iconfont.woff2?t=1691855917410') format('woff2'),
+       url('iconfont.woff?t=1691855917410') format('woff'),
+       url('iconfont.ttf?t=1691855917410') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sss-email:before {
+  content: "\e856";
+}
+
+.sss-logout:before {
+  content: "\e651";
+}
+
+.sss-delete:before {
+  content: "\e710";
+}
+
+.sss-edit:before {
+  content: "\e61a";
+}
+
+.sss-user:before {
+  content: "\ea94";
+}
+
+.sss-loading:before {
+  content: "\e6da";
+}
+
+.sss-tg-top-1:before {
+  content: "\e6c8";
+}
+
+.sss-tg-top-2:before {
+  content: "\ee4a";
+}
+
+.sss-tg-right-1:before {
+  content: "\ee4b";
+}
+
+.sss-tg-right-2:before {
+  content: "\ee4c";
+}
+
+.sss-tg-right-3:before {
+  content: "\ee4d";
+}
+
+.sss-tg-bottom-1:before {
+  content: "\ee4e";
+}
+
+.sss-tg-left-1:before {
+  content: "\ee4f";
+}
+
+.sss-tg-bottom-2:before {
+  content: "\ee50";
+}
+
+.sss-tg-left-2:before {
+  content: "\ee51";
+}
+
+.sss-tg-bottom-3:before {
+  content: "\ee52";
+}
+
+.sss-tg-left-3:before {
+  content: "\ee53";
+}
+
+.sss-tg-top-3:before {
+  content: "\e600";
+}
+
+.sss-eye:before {
+  content: "\e63f";
+}
+
+.sss-other:before {
+  content: "\e603";
+}
+
+.sss-user-fill:before {
+  content: "\e64d";
+}
+
+.sss-tag-fill:before {
+  content: "\e86e";
+}
+
+.sss-time:before {
+  content: "\e8b8";
+}
+
+.sss-star-fill:before {
+  content: "\e709";
+}
+
+.sss-star:before {
+  content: "\ea93";
+}
+
+.sss-minus:before {
+  content: "\eaf5";
+}
+
+.sss-plus:before {
+  content: "\e6ea";
+}
+
+.sss-home:before {
+  content: "\e63d";
+}
+
+.sss-medal:before {
+  content: "\e6d1";
+}
+
+.sss-option:before {
+  content: "\e61c";
+}
+
+.sss-upload:before {
+  content: "\ec1d";
+}
+
+.sss-dongtai:before {
+  content: "\ee41";
+}
+
+.sss-cricle-close:before {
+  content: "\e712";
+}
+
+.sss-close:before {
+  content: "\ee37";
+}
+
+.sss-user2:before {
+  content: "\ee40";
+}
+
+.sss-success:before {
+  content: "\ee3c";
+}
+
+.sss-danger:before {
+  content: "\ee3d";
+}
+
+.sss-warning:before {
+  content: "\ee3e";
+}
+
+.sss-info:before {
+  content: "\ee3f";
+}
+
