@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品库</title>
+    <link rel="stylesheet" href="./css/index.css"> 
+</head>
+<body>
+    <header>
+        <div class="navbar layout">
+            <a href="index.html"><img src="./imgs/personal0.png"></a>
+            <nav>
+                <!--书签及链接-->
+                <a href="#program">作品</a>
+                <a href="resume.html" target="_blank">个人在线简历</a>
+                <a href="http://140.143.133.253:39999/resume.html" target="_blank">PDF简历</a>
+            </nav>
+        </div>
+        <div class="detail layout">
+            <h1>我是Lynn</h1>
+            <p>一名热爱美食和健身的前端程序媛</p>
+        </div>
+        <div class="action">
+            <img src="./imgs/down.svg" alt="down">
+        </div>
+    </header>
+    <main class="layout" id="program">
+        <h1>我的开源项目和作品</h1>
+        <section class="project pikachu">
+            <div class="description">
+                <h2>项目一：画一只皮卡丘</h2>
+                <h4>技术栈：HTML + CSS + jQuery</h4>
+                <p>项目介绍：通过flex布局，利用CSS画一个皮卡丘，并将CSS样式代码动态打印出来。通过jQuery封装一个打印函数，结合setTimeout()动态打印CSS样式。</p>
+            </div>
+            <div class="imgshow">
+                <div class="main">
+                    <img src="./imgs/pikachu-pc.png" alt="PC端">
+                </div>
+                <div class="aside">
+                    <img src="./imgs/pikachu1.png" alt="移动端代码部分">
+                    <img src="./imgs/pikachu2.png" alt="移动端画图部分">
+                </div>
+            </div>
+        </section>
+        <section class="project nav">
+            <div class="description">
+                <h3>项目二：个人定制导航网页</h3>
+                <h4>技术栈：HTML + CSS + JavaScript</h4>
+                <p>项目介绍：通过flex布局及原生js开发的个人导航网页，通过添加事件监听跳转对应按键绑定的网站，还可以自定义每个键绑定的导航网站。根据DOM事件委托机制取消事件冒泡，实现目标网站的修改，而阻止按键点击事件的发生。</p>
+            </div>
+            <div class="main">
+                <img src="./imgs/nav-pc.png" alt="PC端">
+            </div>
+        </section>
+        <section class="project miniapp">
+            <div class="description">
+                <h3>项目三：移动端开心外卖Web App</h3>
+                <h4>技术栈：</h4>
+                <h4>前端-Vue + vue-router + vuex + ES6 + webpack + Vant</h4>
+                <h4>后端-Node + Express + Mongodb + Mongoose</h4>
+                <p>项目介绍：基于外卖业务的前后台分离Web App，采用模块化、组件化、工程化的模式开发，具体涉及技术：1）通过ajax请求库axios封装ajax异步请求函数； 2）ES7最新语法: async/await； 3）利用vuex对组件的共享状态进行集中式管理状态； 4）使用代理服务器解决跨域问题； 5）mock数据接口库：mockjs； 6）一次性短信验证码和图片验证码技术等。</p>
+            </div>
+            <div class="imgshow">
+                <img src="./imgs/WebApp-home.png" alt="首页">
+                <img src="./imgs/WebApp-goods.png" alt="商品页">
+                <img src="./imgs/WebApp-login.png" alt="登录页">
+                <img src="./imgs/WebApp-user.png" alt="用户页">
+            </div>
+        </section>
+        <section class="project miniapp">
+            <div class="description">
+                <h3>项目四：自律书圈社交小程序（开发中）</h3>
+                <h4>技术栈：WXML + WXSS + JavaScript + WXS</h4>
+                <p>项目介绍：项目封装了实现局部页面内路由切换功能的自定义Tabs组件，可以自由添加切换项数量；通过各种微信前端请求接口和云函数、云数据库等云开发技术实现了微信小程序登录及点赞功能，开发读书动态笔记分享社交小程序。</p>
+            </div>
+            <div class="imgshow">
+                <img src="./imgs/social-home.png" alt="首页">
+                <img src="./imgs/social-edit-info.png" alt="修改资料页">
+                <img src="./imgs/social-user.png" alt="用户页">
+            </div>
+        </section>
+        <section class="project miniapp">
+            <div class="description">
+                <h3>项目五：微信云课堂小程序（开发中）</h3>
+                <h4>技术栈：WXML + WXSS + JavaScript + WXS + Vant-weapp</h4>
+                <p>项目介绍：为了熟悉小程序开发流程，基于云课堂业务开发的小程序，利用组件库实现了首页的查询、轮播及宫格导航等界面效果。</p>
+            </div>
+            <div class="imgshow">
+                <img src="./imgs/cloud-class1.png" alt="首页">
+                <img src="./imgs/cloud-class2.png" alt="首页2">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li><img src="" alt="">手机：178xxxxxxxx</li>
+            <li><img src="" alt="">微信：xxxx</li>
+            <li><img src="" alt="">邮箱：Lynne_Zuo@163.com</li>
+            <li><img src="" alt="">Github：
+                <a href="https://github.com/Lynn-zuo" target="_blank">https://github.com/Lynn-zuo</a>
+            </li>
+        </ul>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+</html>
