@@ -1,0 +1,17 @@
+{
+  "name": "liqi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev1": "rollup -i src/index.js -o dist/bundle.js -f es",
+    "dev2": "rollup -c",
+    "dev3": "rollup -c my.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^3.29.2"
+  }
+}

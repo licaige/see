@@ -40,7 +40,6 @@ onMounted(() => {
 			'is-rotating':props.rotating
 		},
 			`sss-${target}`
-
 		]"
 		v-bind="$attrs"
 	></component>

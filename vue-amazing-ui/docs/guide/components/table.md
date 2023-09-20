@@ -1,4 +1,4 @@
-# 表格 Table
+# 表格 Table<BackTop />
 
 <br/>
 
@@ -93,20 +93,22 @@ function onChange (pagination: {page: number, pageSize: number}) {
 
 ## 基本使用
 
-<Table
-  :columns="columns"
-  :data-source="tableData"
-  :total="total"
-  :loading="loading"
-  @change="onChange">
-<!-- 配置指定列数据 -->
-<template #name="record">
-    hello {{ record.name }}
-  </template>
-  <template #job="{ job, index }">
-    hi {{ job }}
-  </template>
-</Table>
+<ClientOnly>
+  <Table
+    :columns="columns"
+    :data-source="tableData"
+    :total="total"
+    :loading="loading"
+    @change="onChange">
+  <!-- 配置指定列数据 -->
+  <template #name="record">
+      hello {{ record.name }}
+    </template>
+    <template #job="{ job, index }">
+      hi {{ job }}
+    </template>
+  </Table>
+</ClientOnly>
 
 ::: details Show Code
 
@@ -214,7 +216,9 @@ function onChange (pagination: {page: number, pageSize: number}) {
 
 ## 加载中
 
-<Table :columns="columns" loading />
+<ClientOnly>
+  <Table :columns="columns" loading />
+</ClientOnly>
 
 ::: details Show Code
 
@@ -260,7 +264,9 @@ const columns = ref([
 
 ## 暂无数据
 
-<Table :columns="columns" :total="0" />
+<ClientOnly>
+  <Table :columns="columns" :total="0" />
+</ClientOnly>
 
 ::: details Show Code
 
