@@ -1,0 +1,207 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 141,
+  "body": [
+    {
+      "type": "FunctionDeclaration",
+      "start": 0,
+      "end": 39,
+      "id": {
+        "type": "Identifier",
+        "start": 9,
+        "end": 12,
+        "name": "add"
+      },
+      "expression": false,
+      "generator": false,
+      "async": false,
+      "params": [
+        {
+          "type": "Identifier",
+          "start": 13,
+          "end": 14,
+          "name": "a"
+        },
+        {
+          "type": "Identifier",
+          "start": 16,
+          "end": 17,
+          "name": "b"
+        }
+      ],
+      "body": {
+        "type": "BlockStatement",
+        "start": 19,
+        "end": 39,
+        "body": [
+          {
+            "type": "ReturnStatement",
+            "start": 25,
+            "end": 37,
+            "argument": {
+              "type": "BinaryExpression",
+              "start": 32,
+              "end": 37,
+              "left": {
+                "type": "Identifier",
+                "start": 32,
+                "end": 33,
+                "name": "a"
+              },
+              "operator": "+",
+              "right": {
+                "type": "Identifier",
+                "start": 36,
+                "end": 37,
+                "name": "b"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "FunctionDeclaration",
+      "start": 40,
+      "end": 84,
+      "id": {
+        "type": "Identifier",
+        "start": 49,
+        "end": 57,
+        "name": "multiple"
+      },
+      "expression": false,
+      "generator": false,
+      "async": false,
+      "params": [
+        {
+          "type": "Identifier",
+          "start": 58,
+          "end": 59,
+          "name": "a"
+        },
+        {
+          "type": "Identifier",
+          "start": 61,
+          "end": 62,
+          "name": "b"
+        }
+      ],
+      "body": {
+        "type": "BlockStatement",
+        "start": 64,
+        "end": 84,
+        "body": [
+          {
+            "type": "ReturnStatement",
+            "start": 70,
+            "end": 82,
+            "argument": {
+              "type": "BinaryExpression",
+              "start": 77,
+              "end": 82,
+              "left": {
+                "type": "Identifier",
+                "start": 77,
+                "end": 78,
+                "name": "a"
+              },
+              "operator": "*",
+              "right": {
+                "type": "Identifier",
+                "start": 81,
+                "end": 82,
+                "name": "b"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "VariableDeclaration",
+      "start": 85,
+      "end": 100,
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 89,
+          "end": 100,
+          "id": {
+            "type": "Identifier",
+            "start": 89,
+            "end": 96,
+            "name": "firstOp"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 99,
+            "end": 100,
+            "value": 9,
+            "raw": "9"
+          }
+        }
+      ],
+      "kind": "var"
+    },
+    {
+      "type": "VariableDeclaration",
+      "start": 101,
+      "end": 118,
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 105,
+          "end": 118,
+          "id": {
+            "type": "Identifier",
+            "start": 105,
+            "end": 113,
+            "name": "secondOp"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 116,
+            "end": 118,
+            "value": 10,
+            "raw": "10"
+          }
+        }
+      ],
+      "kind": "var"
+    },
+    {
+      "type": "ExpressionStatement",
+      "start": 119,
+      "end": 141,
+      "expression": {
+        "type": "CallExpression",
+        "start": 119,
+        "end": 141,
+        "callee": {
+          "type": "Identifier",
+          "start": 119,
+          "end": 122,
+          "name": "add"
+        },
+        "arguments": [
+          {
+            "type": "Identifier",
+            "start": 123,
+            "end": 130,
+            "name": "firstOp"
+          },
+          {
+            "type": "Identifier",
+            "start": 132,
+            "end": 140,
+            "name": "secondOp"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ],
+  "sourceType": "module"
+}

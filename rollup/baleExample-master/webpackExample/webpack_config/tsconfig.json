@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "allowSyntheticDefaultImports": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "allowJs": true
+    },
+    "include": [
+        "mock/**/*",
+        "src/**/*",
+        "config/**/*",
+        ".umirc.ts",
+        "typings.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib",
+        "es",
+        "dist",
+        "typings",
+        "**/__test__",
+        "test",
+        "docs",
+        "tests"
+    ]
+}

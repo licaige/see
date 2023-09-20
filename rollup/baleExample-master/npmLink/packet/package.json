@@ -1,0 +1,7 @@
+{
+  "key": "value",
+  "name": "packet",
+  "version": "0.0.1",
+  "description": "这是一个公共包",
+  "main": "index.js"
+}

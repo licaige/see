@@ -1,0 +1,12 @@
+# build dist
+dist
+
+# bundle
+bundle.js
+
+# dependence
+node_modules
+
+# zip
+.zip
+.rar

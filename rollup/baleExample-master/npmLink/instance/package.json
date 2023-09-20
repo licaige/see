@@ -1,0 +1,7 @@
+{
+  "key": "value",
+  "name": "instance",
+  "version": "0.0.1",
+  "description": "一个业务程序",
+  "main": "index.js"
+}
