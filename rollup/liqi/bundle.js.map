@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sources":["src/modules/myModole.js","src/main.js"],"sourcesContent":["export const name = 'jiaHang'\r\nexport const age = 18\r\n\r\n","import { name } from './modules/myModole';\r\nconsole.log('hello' + name);\r\n"],"names":[],"mappings":";;AAAO,MAAM,IAAI,GAAG;;ACCpB,OAAO,CAAC,GAAG,CAAC,OAAO,GAAG,IAAI,CAAC;;"}
