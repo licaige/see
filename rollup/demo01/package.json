@@ -1,0 +1,24 @@
+{
+  "name": "chapter-08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
+    "@vue/babel-preset-jsx": "^1.4.0",
+    "postcss": "^8.4.21",
+    "rollup": "^3.20.0",
+    "rollup-plugin-cleandir": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-vue": "^5.1.9",
+    "vue": "2.7.10",
+    "vue-template-compiler": "2.7.10"
+  }
+}
